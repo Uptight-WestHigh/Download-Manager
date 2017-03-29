@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,12 +7,12 @@ using System.Windows.Forms;
 
 namespace Download_Manager
 {
-    public partial class Form1 : Form
+    public class Browsers
     {
-        public Form1()
+        public static void InitializeBrowsers()
         {
-            InitializeComponent();
-            Browsers.InitializeBrowsers();
+            //Form1 form1 = new Form1();
+            //form1.checkedListBoxBrowsers.CheckOnClick = true;
         }
     }
 }

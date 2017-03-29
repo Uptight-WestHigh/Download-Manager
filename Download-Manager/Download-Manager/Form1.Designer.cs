@@ -1,6 +1,6 @@
 ﻿namespace Download_Manager
 {
-    partial class Form1
+    public partial class Form1
     {
         /// <summary>
         /// Required designer variable.
@@ -40,6 +40,9 @@
             this.option2ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.option3ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.checkedListBoxBrowsers = new System.Windows.Forms.CheckedListBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -53,8 +56,6 @@
             this.tabPage12 = new System.Windows.Forms.TabPage();
             this.tabPage13 = new System.Windows.Forms.TabPage();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
@@ -90,19 +91,19 @@
             // option1ToolStripMenuItem
             // 
             this.option1ToolStripMenuItem.Name = "option1ToolStripMenuItem";
-            this.option1ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.option1ToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.option1ToolStripMenuItem.Text = "Option 1";
             // 
             // option2ToolStripMenuItem
             // 
             this.option2ToolStripMenuItem.Name = "option2ToolStripMenuItem";
-            this.option2ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.option2ToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.option2ToolStripMenuItem.Text = "Option 2";
             // 
             // option3ToolStripMenuItem
             // 
             this.option3ToolStripMenuItem.Name = "option3ToolStripMenuItem";
-            this.option3ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.option3ToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.option3ToolStripMenuItem.Text = "Option 3";
             // 
             // toolStripSeparator1
@@ -126,19 +127,19 @@
             // option1ToolStripMenuItem1
             // 
             this.option1ToolStripMenuItem1.Name = "option1ToolStripMenuItem1";
-            this.option1ToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.option1ToolStripMenuItem1.Size = new System.Drawing.Size(120, 22);
             this.option1ToolStripMenuItem1.Text = "Option 1";
             // 
             // option2ToolStripMenuItem1
             // 
             this.option2ToolStripMenuItem1.Name = "option2ToolStripMenuItem1";
-            this.option2ToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.option2ToolStripMenuItem1.Size = new System.Drawing.Size(120, 22);
             this.option2ToolStripMenuItem1.Text = "Option 2";
             // 
             // option3ToolStripMenuItem1
             // 
             this.option3ToolStripMenuItem1.Name = "option3ToolStripMenuItem1";
-            this.option3ToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.option3ToolStripMenuItem1.Size = new System.Drawing.Size(120, 22);
             this.option3ToolStripMenuItem1.Text = "Option 3";
             // 
             // tabControl1
@@ -162,12 +163,48 @@
             this.tabControl1.Size = new System.Drawing.Size(715, 302);
             this.tabControl1.TabIndex = 1;
             // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.richTextBox1);
+            this.tabPage1.Controls.Add(this.checkedListBoxBrowsers);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(707, 276);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Web Browsers";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(130, 6);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(571, 259);
+            this.richTextBox1.TabIndex = 1;
+            this.richTextBox1.Text = "Google Chrome\n\nThe worlds most popular web browser";
+            // 
+            // checkedListBoxBrowsers
+            // 
+            this.checkedListBoxBrowsers.FormattingEnabled = true;
+            this.checkedListBoxBrowsers.Items.AddRange(new object[] {
+            "Google Chrome",
+            "Opera",
+            "Mozilla Firefox",
+            "Vivaldi",
+            "Safari",
+            "Edge",
+            "Chromium"});
+            this.checkedListBoxBrowsers.Location = new System.Drawing.Point(6, 6);
+            this.checkedListBoxBrowsers.Name = "checkedListBoxBrowsers";
+            this.checkedListBoxBrowsers.Size = new System.Drawing.Size(118, 259);
+            this.checkedListBoxBrowsers.TabIndex = 0;
+            // 
             // tabPage2
             // 
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(707, 378);
+            this.tabPage2.Size = new System.Drawing.Size(707, 276);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Utilities";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -176,7 +213,7 @@
             // 
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(707, 378);
+            this.tabPage3.Size = new System.Drawing.Size(707, 276);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Messaging";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -185,7 +222,7 @@
             // 
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(707, 378);
+            this.tabPage4.Size = new System.Drawing.Size(707, 276);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Compression";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -194,7 +231,7 @@
             // 
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(707, 378);
+            this.tabPage5.Size = new System.Drawing.Size(707, 276);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Media";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -203,7 +240,7 @@
             // 
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(707, 378);
+            this.tabPage6.Size = new System.Drawing.Size(707, 276);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Runtimes";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -212,7 +249,7 @@
             // 
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(707, 378);
+            this.tabPage7.Size = new System.Drawing.Size(707, 276);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "Developer Tools";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -221,7 +258,7 @@
             // 
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(707, 378);
+            this.tabPage8.Size = new System.Drawing.Size(707, 276);
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "Imaging";
             this.tabPage8.UseVisualStyleBackColor = true;
@@ -230,7 +267,7 @@
             // 
             this.tabPage9.Location = new System.Drawing.Point(4, 22);
             this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Size = new System.Drawing.Size(707, 378);
+            this.tabPage9.Size = new System.Drawing.Size(707, 276);
             this.tabPage9.TabIndex = 8;
             this.tabPage9.Text = "Documents";
             this.tabPage9.UseVisualStyleBackColor = true;
@@ -239,7 +276,7 @@
             // 
             this.tabPage10.Location = new System.Drawing.Point(4, 22);
             this.tabPage10.Name = "tabPage10";
-            this.tabPage10.Size = new System.Drawing.Size(707, 378);
+            this.tabPage10.Size = new System.Drawing.Size(707, 276);
             this.tabPage10.TabIndex = 9;
             this.tabPage10.Text = "Security";
             this.tabPage10.UseVisualStyleBackColor = true;
@@ -248,7 +285,7 @@
             // 
             this.tabPage11.Location = new System.Drawing.Point(4, 22);
             this.tabPage11.Name = "tabPage11";
-            this.tabPage11.Size = new System.Drawing.Size(707, 378);
+            this.tabPage11.Size = new System.Drawing.Size(707, 276);
             this.tabPage11.TabIndex = 10;
             this.tabPage11.Text = "File Sharing";
             this.tabPage11.UseVisualStyleBackColor = true;
@@ -257,7 +294,7 @@
             // 
             this.tabPage12.Location = new System.Drawing.Point(4, 22);
             this.tabPage12.Name = "tabPage12";
-            this.tabPage12.Size = new System.Drawing.Size(707, 378);
+            this.tabPage12.Size = new System.Drawing.Size(707, 276);
             this.tabPage12.TabIndex = 11;
             this.tabPage12.Text = "Other";
             this.tabPage12.UseVisualStyleBackColor = true;
@@ -266,7 +303,7 @@
             // 
             this.tabPage13.Location = new System.Drawing.Point(4, 22);
             this.tabPage13.Name = "tabPage13";
-            this.tabPage13.Size = new System.Drawing.Size(707, 378);
+            this.tabPage13.Size = new System.Drawing.Size(707, 276);
             this.tabPage13.TabIndex = 12;
             this.tabPage13.Text = "Online Storage";
             this.tabPage13.UseVisualStyleBackColor = true;
@@ -277,33 +314,6 @@
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(569, 23);
             this.progressBar1.TabIndex = 2;
-            // 
-            // checkedListBox1
-            // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Items.AddRange(new object[] {
-            "Google Chrome",
-            "Opera",
-            "Mozilla Firefox",
-            "Vivaldi",
-            "Safari",
-            "Edge",
-            "Chromium"});
-            this.checkedListBox1.Location = new System.Drawing.Point(6, 6);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(118, 259);
-            this.checkedListBox1.TabIndex = 0;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.checkedListBox1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(707, 276);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Web Browsers";
-            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
@@ -370,10 +380,11 @@
         private System.Windows.Forms.TabPage tabPage12;
         private System.Windows.Forms.TabPage tabPage13;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        public System.Windows.Forms.CheckedListBox checkedListBoxBrowsers;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
 
