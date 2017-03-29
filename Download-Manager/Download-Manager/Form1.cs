@@ -17,5 +17,10 @@ namespace Download_Manager
             InitializeComponent();
             Browsers.InitializeBrowsers();
         }
+
+        private void downloadButton_Click(object sender, EventArgs e)
+        {
+            Download.Button();
+        }
     }
 }

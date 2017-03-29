@@ -55,8 +55,8 @@
             this.tabPage11 = new System.Windows.Forms.TabPage();
             this.tabPage12 = new System.Windows.Forms.TabPage();
             this.tabPage13 = new System.Windows.Forms.TabPage();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.button1 = new System.Windows.Forms.Button();
+            this.downloadProgressBar = new System.Windows.Forms.ProgressBar();
+            this.downloadButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -308,21 +308,22 @@
             this.tabPage13.Text = "Online Storage";
             this.tabPage13.UseVisualStyleBackColor = true;
             // 
-            // progressBar1
+            // downloadProgressBar
             // 
-            this.progressBar1.Location = new System.Drawing.Point(58, 336);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(569, 23);
-            this.progressBar1.TabIndex = 2;
+            this.downloadProgressBar.Location = new System.Drawing.Point(58, 336);
+            this.downloadProgressBar.Name = "downloadProgressBar";
+            this.downloadProgressBar.Size = new System.Drawing.Size(569, 23);
+            this.downloadProgressBar.TabIndex = 2;
             // 
-            // button1
+            // downloadButton
             // 
-            this.button1.Location = new System.Drawing.Point(633, 337);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Download";
-            this.button1.UseVisualStyleBackColor = true;
+            this.downloadButton.Location = new System.Drawing.Point(633, 337);
+            this.downloadButton.Name = "downloadButton";
+            this.downloadButton.Size = new System.Drawing.Size(90, 23);
+            this.downloadButton.TabIndex = 3;
+            this.downloadButton.Text = "Download";
+            this.downloadButton.UseVisualStyleBackColor = true;
+            this.downloadButton.Click += new System.EventHandler(this.downloadButton_Click);
             // 
             // label1
             // 
@@ -339,8 +340,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(739, 371);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.downloadButton);
+            this.Controls.Add(this.downloadProgressBar);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "Form1";
@@ -381,8 +382,8 @@
         private System.Windows.Forms.TabPage tabPage13;
         private System.Windows.Forms.TabPage tabPage1;
         public System.Windows.Forms.CheckedListBox checkedListBoxBrowsers;
-        private System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.Button button1;
+        public System.Windows.Forms.ProgressBar downloadProgressBar;
+        private System.Windows.Forms.Button downloadButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RichTextBox richTextBox1;
     }
