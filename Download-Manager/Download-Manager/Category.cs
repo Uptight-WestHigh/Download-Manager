@@ -8,6 +8,8 @@ namespace Download_Manager
 {
     public class Category
     {
+        // Contains the information on the varius categories
+
         public string name;
         public int id;
 
