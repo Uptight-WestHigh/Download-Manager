@@ -43,7 +43,7 @@ namespace Download_Manager
                 radioButtons[i].Text = listing.categories[i].name;
                 radioButtons[i].UseVisualStyleBackColor = true;
                 radioButtons[i].Cursor = Cursors.Hand;
-                radioButtons[i].CheckedChanged += new EventHandler(radioButtons_CheckedChanged);
+                radioButtons[i].Click += new EventHandler(radioButtons_Click);
 
                 categoriesPanel.Controls.Add(radioButtons[i]);
             }
@@ -67,7 +67,7 @@ namespace Download_Manager
                 checkBoxes[i].Text = listing.browsers[i].name;
                 checkBoxes[i].UseVisualStyleBackColor = true;
                 checkBoxes[i].Cursor = Cursors.Hand;
-                checkBoxes[i].CheckedChanged += new EventHandler(checkBoxes_CheckedChanged);
+                checkBoxes[i].Click += new EventHandler(checkBoxes_Click);
 
                 programsPanel.Controls.Add(checkBoxes[i]);
             }
@@ -76,15 +76,15 @@ namespace Download_Manager
         /// <summary>
         /// Triggered when a radiobutton in the categories is changed
         /// </summary>
-        private void radioButtons_CheckedChanged(object sender, EventArgs e)
+        private void radioButtons_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Category Radiobutton Works");
+            MessageBox.Show(((RadioButton)sender).Name + " is selected");
         }
 
         /// <summary>
         /// Triggered when a checkbox in the programs is changed
         /// </summary>
-        private void checkBoxes_CheckedChanged(object sender, EventArgs e)
+        private void checkBoxes_Click(object sender, EventArgs e)
         {
             // Need to make this more universal, currently only works with browsers.
             // Alternative: One void for each type of program.
