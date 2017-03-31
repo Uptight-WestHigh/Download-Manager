@@ -12,15 +12,15 @@ namespace Download_Manager
 
         public string name;
         public int id;
-        public int categoryId;
+        public string category;
         public string url;
         public string desc;
 
-        public Programs(string name, int id, int categoryId, string url, string desc)
+        public Programs(string name, int id, string programCategory, string url, string desc)
         {
             this.name = name;
             this.id = id;
-            this.categoryId = categoryId;
+            this.category = programCategory;
             this.url = url;
             this.desc = desc;
         }

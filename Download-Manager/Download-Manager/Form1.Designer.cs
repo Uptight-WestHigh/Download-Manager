@@ -186,7 +186,7 @@
             this.descriptionTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
             this.descriptionTextBox.Size = new System.Drawing.Size(239, 304);
             this.descriptionTextBox.TabIndex = 6;
-            this.descriptionTextBox.Text = "Google Chrome\n\nThe world\'s most popular browser\n\n52MB";
+            this.descriptionTextBox.Text = "";
             // 
             // categoriesPanel
             // 

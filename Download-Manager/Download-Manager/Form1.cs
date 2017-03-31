@@ -12,15 +12,18 @@ namespace Download_Manager
 {
     public partial class Form1 : Form
     {
-        Listing listing = new Listing();
+        public static Listing listing = new Listing();
+        int j;
+
+        public CheckBox[] checkBoxes = new CheckBox[listing.programName.Length];
         public Form1()
         {
             InitializeComponent();
             listing.InitializeCategories();
-            listing.InitializeBrowsers();
+            listing.InitializePrograms();
 
             CreateCategories();
-            CreateBrowsers();
+            CreatePrograms();
         }
 
         /// <summary>
@@ -52,23 +55,30 @@ namespace Download_Manager
         /// <summary>
         /// Creates all the browsers checkboxes
         /// </summary>
-        private void CreateBrowsers()
+        private void CreatePrograms()
         {
-            CheckBox[] checkBoxes = new CheckBox[listing.browsers.Count];
-
-            for (int i = 0; i < listing.browsers.Count; i++)
+            for (int i = 0; i < listing.programName.Length; i++)
             {
                 checkBoxes[i] = new CheckBox();
                 checkBoxes[i].AutoSize = true;
-                // Position relative to the panel
-                checkBoxes[i].Location = new Point(3, (3 + i * 20));
-                checkBoxes[i].Name = listing.browsers[i].name;
+                // Name = Category
+                checkBoxes[i].Name = listing.programs[i].category;
                 checkBoxes[i].TabIndex = 0;
-                checkBoxes[i].Text = listing.browsers[i].name;
+                // Text = Program name
+                checkBoxes[i].Text = listing.programs[i].name;
                 checkBoxes[i].UseVisualStyleBackColor = true;
                 checkBoxes[i].Cursor = Cursors.Hand;
                 checkBoxes[i].Click += new EventHandler(checkBoxes_Click);
-
+                checkBoxes[i].Visible = false;
+                // Resets Y-position if new category
+                if (i != 0 && checkBoxes[i - 1].Name != checkBoxes[i].Name)
+                {
+                    j = 0;
+                }
+                // Position relative to the panel
+                checkBoxes[i].Location = new Point(3, (3 + j * 20));
+                // Increase position variable
+                j++;
                 programsPanel.Controls.Add(checkBoxes[i]);
             }
         }
@@ -78,7 +88,21 @@ namespace Download_Manager
         /// </summary>
         private void radioButtons_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(((RadioButton)sender).Name + " is selected");
+            // Go through all of the checkboxes
+            for (int i = 0; i < checkBoxes.Length; i++)
+            {
+                // If the checkbox name (category) matches the radiobutton name
+                if (checkBoxes[i].Name == ((RadioButton)sender).Name)
+                {
+                    // Display them
+                    checkBoxes[i].Visible = true;
+                }
+                else
+                {
+                    // Hide them
+                    checkBoxes[i].Visible = false;
+                }
+            }
         }
 
         /// <summary>
@@ -86,19 +110,16 @@ namespace Download_Manager
         /// </summary>
         private void checkBoxes_Click(object sender, EventArgs e)
         {
-            // Need to make this more universal, currently only works with browsers.
-            // Alternative: One void for each type of program.
-            string programDesc = "";
             // Get description
-            for (int i = 0; i < listing.browsers.Count; i++)
+            for (int i = 0; i < checkBoxes.Length; i++)
             {
-                if (listing.browsers[i].name == ((CheckBox)sender).Name)
+                if (checkBoxes[i].Text == ((CheckBox)sender).Text)
                 {
-                    programDesc = listing.browsers[i].desc;
+                    // Set the description text box
+                    descriptionTextBox.Text = ((CheckBox)sender).Text + "\n\n" + listing.programs[i].desc + "\n\n" + listing.programs[i].url;       
                 }
             }
-            // Set the description text box
-            descriptionTextBox.Text = ((CheckBox)sender).Name + "\n\n" + programDesc;
+
         }
     }
 }
