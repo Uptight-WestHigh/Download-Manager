@@ -13,9 +13,11 @@ namespace Download_Manager
     public partial class Form1 : Form
     {
         public static Listing listing = new Listing();
+        public List<Programs> selectedPrograms = new List<Programs>();
         int j;
 
-        public CheckBox[] checkBoxes = new CheckBox[listing.programName.Length];
+        public CheckBox[] checkBoxes = new CheckBox[100];
+        public Label[] labels = new Label[100];
         public Form1()
         {
             InitializeComponent();
@@ -57,7 +59,7 @@ namespace Download_Manager
         /// </summary>
         private void CreatePrograms()
         {
-            for (int i = 0; i < listing.programName.Length; i++)
+            for (int i = 0; i < listing.programs.Count; i++)
             {
                 checkBoxes[i] = new CheckBox();
                 checkBoxes[i].AutoSize = true;
@@ -89,7 +91,7 @@ namespace Download_Manager
         private void radioButtons_Click(object sender, EventArgs e)
         {
             // Go through all of the checkboxes
-            for (int i = 0; i < checkBoxes.Length; i++)
+            for (int i = 0; i < listing.programs.Count; i++)
             {
                 // If the checkbox name (category) matches the radiobutton name
                 if (checkBoxes[i].Name == ((RadioButton)sender).Name)
@@ -111,12 +113,32 @@ namespace Download_Manager
         private void checkBoxes_Click(object sender, EventArgs e)
         {
             // Get description
-            for (int i = 0; i < checkBoxes.Length; i++)
+            for (int i = 0; i < listing.programs.Count; i++)
             {
                 if (checkBoxes[i].Text == ((CheckBox)sender).Text)
                 {
                     // Set the description text box
-                    descriptionTextBox.Text = ((CheckBox)sender).Text + "\n\n" + listing.programs[i].desc + "\n\n" + listing.programs[i].url;       
+                    descriptionTextBox.Text = ((CheckBox)sender).Text + "\n\n" + listing.programs[i].desc + "\n\n" + listing.programs[i].url;
+
+                    // Add to list of selected programs
+                    selectedPrograms.Add(listing.programs[i]);
+                    int k = 0;
+                    for (int j = 0; j < selectedPrograms.Count; j++)
+                    {
+                        labels[j] = new Label();
+                        labels[j].AutoSize = true;
+                        // Name = Category
+                        // Text = Program name
+                        labels[j].Text = listing.programs[i].name;
+                        labels[j].Visible = true;
+                        // Resets Y-position if new category
+
+                        // Position relative to the panel
+                        labels[j].Location = new Point(3, (3 + k * 20));
+                        // Increase position variable
+                        k++;
+                        selectedPanel.Controls.Add(labels[j]);
+                    }
                 }
             }
 

@@ -47,6 +47,7 @@
             this.categoriesPanel = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.programsPanel = new System.Windows.Forms.Panel();
+            this.selectedPanel = new System.Windows.Forms.Panel();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -149,17 +150,27 @@
             // 
             this.downloadProgressBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+<<<<<<< HEAD
             this.downloadProgressBar.Location = new System.Drawing.Point(57, 438);
             this.downloadProgressBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.downloadProgressBar.Name = "downloadProgressBar";
             this.downloadProgressBar.Size = new System.Drawing.Size(575, 28);
+=======
+            this.downloadProgressBar.Location = new System.Drawing.Point(43, 398);
+            this.downloadProgressBar.Name = "downloadProgressBar";
+            this.downloadProgressBar.Size = new System.Drawing.Size(699, 23);
+>>>>>>> origin/master
             this.downloadProgressBar.TabIndex = 2;
             // 
             // downloadButton
             // 
             this.downloadButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+<<<<<<< HEAD
             this.downloadButton.Location = new System.Drawing.Point(639, 438);
             this.downloadButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+=======
+            this.downloadButton.Location = new System.Drawing.Point(747, 398);
+>>>>>>> origin/master
             this.downloadButton.Name = "downloadButton";
             this.downloadButton.Size = new System.Drawing.Size(101, 28);
             this.downloadButton.TabIndex = 3;
@@ -170,8 +181,12 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
+<<<<<<< HEAD
             this.label1.Location = new System.Drawing.Point(9, 442);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+=======
+            this.label1.Location = new System.Drawing.Point(7, 401);
+>>>>>>> origin/master
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 17);
             this.label1.TabIndex = 4;
@@ -183,11 +198,19 @@
             this.descriptionTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+<<<<<<< HEAD
             this.descriptionTextBox.Location = new System.Drawing.Point(424, 31);
             this.descriptionTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.descriptionTextBox.Name = "descriptionTextBox";
             this.descriptionTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
             this.descriptionTextBox.Size = new System.Drawing.Size(317, 373);
+=======
+            this.descriptionTextBox.Location = new System.Drawing.Point(337, 27);
+            this.descriptionTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.descriptionTextBox.Name = "descriptionTextBox";
+            this.descriptionTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
+            this.descriptionTextBox.Size = new System.Drawing.Size(320, 344);
+>>>>>>> origin/master
             this.descriptionTextBox.TabIndex = 6;
             this.descriptionTextBox.Text = "";
             // 
@@ -198,18 +221,29 @@
             this.categoriesPanel.AutoScroll = true;
             this.categoriesPanel.BackColor = System.Drawing.SystemColors.Window;
             this.categoriesPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+<<<<<<< HEAD
             this.categoriesPanel.Location = new System.Drawing.Point(12, 31);
             this.categoriesPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.categoriesPanel.Name = "categoriesPanel";
             this.categoriesPanel.Size = new System.Drawing.Size(183, 373);
+=======
+            this.categoriesPanel.Location = new System.Drawing.Point(9, 27);
+            this.categoriesPanel.Margin = new System.Windows.Forms.Padding(2);
+            this.categoriesPanel.Name = "categoriesPanel";
+            this.categoriesPanel.Size = new System.Drawing.Size(160, 344);
+>>>>>>> origin/master
             this.categoriesPanel.TabIndex = 7;
             // 
             // label2
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
+<<<<<<< HEAD
             this.label2.Location = new System.Drawing.Point(9, 415);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+=======
+            this.label2.Location = new System.Drawing.Point(7, 379);
+>>>>>>> origin/master
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(493, 17);
             this.label2.TabIndex = 8;
@@ -223,17 +257,42 @@
             this.programsPanel.AutoScroll = true;
             this.programsPanel.BackColor = System.Drawing.SystemColors.Window;
             this.programsPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+<<<<<<< HEAD
             this.programsPanel.Location = new System.Drawing.Point(201, 31);
             this.programsPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.programsPanel.Name = "programsPanel";
             this.programsPanel.Size = new System.Drawing.Size(216, 373);
+=======
+            this.programsPanel.Location = new System.Drawing.Point(173, 27);
+            this.programsPanel.Margin = new System.Windows.Forms.Padding(2);
+            this.programsPanel.Name = "programsPanel";
+            this.programsPanel.Size = new System.Drawing.Size(160, 344);
+>>>>>>> origin/master
             this.programsPanel.TabIndex = 8;
+            // 
+            // selectedPanel
+            // 
+            this.selectedPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.selectedPanel.AutoScroll = true;
+            this.selectedPanel.BackColor = System.Drawing.SystemColors.Window;
+            this.selectedPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.selectedPanel.Location = new System.Drawing.Point(661, 27);
+            this.selectedPanel.Margin = new System.Windows.Forms.Padding(2);
+            this.selectedPanel.Name = "selectedPanel";
+            this.selectedPanel.Size = new System.Drawing.Size(160, 344);
+            this.selectedPanel.TabIndex = 9;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(753, 479);
+=======
+            this.ClientSize = new System.Drawing.Size(833, 431);
+            this.Controls.Add(this.selectedPanel);
+>>>>>>> origin/master
             this.Controls.Add(this.programsPanel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.categoriesPanel);
@@ -272,6 +331,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.Panel programsPanel;
+        private System.Windows.Forms.Panel selectedPanel;
     }
 }
 
