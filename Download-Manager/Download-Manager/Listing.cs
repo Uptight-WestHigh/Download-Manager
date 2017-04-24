@@ -43,7 +43,7 @@ namespace Download_Manager
             }
         }
 
-        // List of browsers
+        // List of programss
         public List<Programs> programs = new List<Programs>();
 
         // Array of browser names, 86 programs
@@ -349,7 +349,6 @@ namespace Download_Manager
             "Apple's web browser.",
             "Descriptiuon for qBittorrent",
             "Description for eMule",
-                        "",
             "",
             "",
             "",
@@ -360,7 +359,6 @@ namespace Download_Manager
             "",
             "",
             "",
-                        "",
             "",
             "",
             "",
@@ -371,7 +369,6 @@ namespace Download_Manager
             "",
             "",
             "",
-                        "",
             "",
             "",
             "",
@@ -382,7 +379,6 @@ namespace Download_Manager
             "",
             "",
             "",
-                        "",
             "",
             "",
             "",
@@ -393,7 +389,6 @@ namespace Download_Manager
             "",
             "",
             "",
-                        "",
             "",
             "",
             "",
@@ -404,7 +399,6 @@ namespace Download_Manager
             "",
             "",
             "",
-                        "",
             "",
             "",
             "",
@@ -415,7 +409,6 @@ namespace Download_Manager
             "",
             "",
             "",
-                        "",
             "",
             "",
             "",
@@ -426,7 +419,14 @@ namespace Download_Manager
             "",
             "",
             "",
-                        "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
             "",
             "",
             "",
