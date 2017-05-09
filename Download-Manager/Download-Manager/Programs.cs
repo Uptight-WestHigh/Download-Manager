@@ -15,6 +15,7 @@ namespace Download_Manager
         public string category;
         public string url;
         public string desc;
+        public bool added = false;
 
         public Programs(string name, int id, string programCategory, string desc, string url)
         {

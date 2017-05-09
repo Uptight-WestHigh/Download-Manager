@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace Download_Manager
 {
@@ -18,6 +19,9 @@ namespace Download_Manager
 
         public CheckBox[] checkBoxes = new CheckBox[100];
         public Label[] labels = new Label[100];
+
+        Download download = new Download();
+
         public Form1()
         {
             InitializeComponent();
@@ -115,33 +119,100 @@ namespace Download_Manager
             // Get description
             for (int i = 0; i < listing.programs.Count; i++)
             {
+                // If the checkbox matches the sending object
                 if (checkBoxes[i].Text == ((CheckBox)sender).Text)
                 {
-                    // Set the description text box
+                    // Set the description
                     descriptionTextBox.Text = ((CheckBox)sender).Text + "\n\n" + listing.programs[i].desc + "\n\n" + listing.programs[i].url;
-
-                    // Add to list of selected programs
-                    selectedPrograms.Add(listing.programs[i]);
-                    int k = 0;
-                    for (int j = 0; j < selectedPrograms.Count; j++)
+                    // If the program has not been added to the list yet
+                    if (!listing.programs[i].added)
                     {
-                        labels[j] = new Label();
-                        labels[j].AutoSize = true;
-                        // Name = Category
-                        // Text = Program name
-                        labels[j].Text = listing.programs[i].name;
-                        labels[j].Visible = true;
-                        // Resets Y-position if new category
+                        // Remove all programs in the list
+                        // To clear and replace with the programs still left.
+                        for (int i2 = 0; i2 < selectedPrograms.Count; i2++)
+                        {
+                            selectedPanel.Controls.RemoveAt(0);
+                        }
 
-                        // Position relative to the panel
-                        labels[j].Location = new Point(3, (3 + k * 20));
-                        // Increase position variable
-                        k++;
-                        selectedPanel.Controls.Add(labels[j]);
+                        // Add current program to the list of selected programs
+                        selectedPrograms.Add(listing.programs[i]);
+                            int k = 0;
+
+                        // For each of the selected programs
+                        for (int j = 0; j < selectedPrograms.Count; j++)
+                        {
+                            labels[j] = new Label();
+                            labels[j].AutoSize = true;
+                            // Text = Program name
+                            labels[j].Text = selectedPrograms[j].name;
+                            labels[j].Visible = true;
+                            // Resets Y-position if new category
+
+                            // Position relative to the panel
+                            labels[j].Location = new Point(3, (3));
+                            // Increase position variable
+                            k++;
+                            selectedPanel.Controls.Add(labels[j]);
+                            listing.programs[i].added = true;
+                        }
+                    }
+                    // If the program alreadt exists in the list, remove it.
+                    else if (listing.programs[i].added)
+                    {
+                        // For each of the selected programs
+                        for (int j = 0; j < selectedPrograms.Count; j++)
+                        {
+                            // Get the program list id that matches the program name
+                            int programListId = GetProgramListID(listing.programs[i].name);
+                            // If nothing is returned, stop
+                            if (programListId < 0)
+                                return;
+                             
+                            // Remove the program from the list
+                            selectedPrograms.RemoveAt(programListId);
+                            // Set the "added" variable to false
+                            listing.programs[i].added = false;
+                            // Remove the selected program list item
+                            selectedPanel.Controls.RemoveAt(programListId);
+                        }
                     }
                 }
             }
 
+        }
+
+        /// <summary>
+        /// Get the list item ID that matches the checkbox
+        /// </summary>
+        private int GetProgramListID(string name)
+        {
+            for (int i = 0; i < selectedPrograms.Count; i++)
+            {
+                if (selectedPrograms[i].name == name)
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        /// <summary>
+        /// Download every selected object
+        /// </summary>
+        private void downloadButton_Click(object sender, EventArgs e)
+        {
+            download.DownloadItems();
+        }
+
+        private void descriptionTextBox_LinkClicked(object sender, LinkClickedEventArgs e)
+        {
+            //RichTextBox linkBox = (RichTextBox)sender;
+            //for (int i = 0; i < listing.programs.Count; i++)
+            //{
+            //    if (listing.programs[i].text = linkBox.Name)
+            //}
+            //ProcessStartInfo sInfo = new ProcessStartInfo(listing.programs[i].url);
+            //Process.Start(sInfo);
         }
     }
 }
