@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Collections.Generic;
 
 namespace Download_Manager
 {
@@ -56,9 +51,9 @@ namespace Download_Manager
             // Name, ID, Category, Description, URL
 
             // Web browsers
-            programs.Add(new Programs("Google Chrome", i, "Web Browsers", "The world's most popular web browser.", "http://dl.google.com/tag/s/appguid=%7B8A69D345-D564-463C-AFF1-A69D9E530F96%7D&iid=%7BB7F9A059-3A71-F0A8-67CB-8C83969F881C%7D&lang=en-IN&browser=3&usagestats=0&appname=Google%20Chrome&needsadmin=false/update2/installers/ChromeStandaloneSetup.exe")); i++;
-            programs.Add(new Programs("Mozilla Firefox", i, "Web Browsers", "", "")); i++;
-            programs.Add(new Programs("Opera", i, "Web Browsers", "", "")); i++;
+            programs.Add(new Programs("Google Chrome", i, "Web Browsers", "The world's most popular web browser.", "ChromeSetup.exe")); i++;
+            programs.Add(new Programs("Mozilla Firefox", i, "Web Browsers", "An open source browser.", "FirefoxSetup.exe")); i++;
+            programs.Add(new Programs("Opera", i, "Web Browsers", "Based on chrome, but more customizable.", "OperaSetup")); i++;
             programs.Add(new Programs("Microsoft Edge", i, "Web Browsers", "", "")); i++;
             programs.Add(new Programs("Vivaldi", i, "Web Browsers", "", "")); i++;
             programs.Add(new Programs("Safari", i, "Web Browsers", "", "")); i++;

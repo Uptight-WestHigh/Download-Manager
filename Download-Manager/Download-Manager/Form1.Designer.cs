@@ -38,7 +38,7 @@
             this.option3ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.downloadProgressBar = new System.Windows.Forms.ProgressBar();
+            downloadProgressBar = new System.Windows.Forms.ProgressBar();
             this.downloadButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.descriptionTextBox = new System.Windows.Forms.RichTextBox();
@@ -60,7 +60,7 @@
             this.toolStripButton2});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(206, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(170, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -74,25 +74,25 @@
             this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(46, 24);
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(38, 22);
             this.toolStripDropDownButton1.Text = "File";
             // 
             // option1ToolStripMenuItem
             // 
             this.option1ToolStripMenuItem.Name = "option1ToolStripMenuItem";
-            this.option1ToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
+            this.option1ToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.option1ToolStripMenuItem.Text = "Option 1";
             // 
             // option2ToolStripMenuItem
             // 
             this.option2ToolStripMenuItem.Name = "option2ToolStripMenuItem";
-            this.option2ToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
+            this.option2ToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.option2ToolStripMenuItem.Text = "Option 2";
             // 
             // option3ToolStripMenuItem
             // 
             this.option3ToolStripMenuItem.Name = "option3ToolStripMenuItem";
-            this.option3ToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
+            this.option3ToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.option3ToolStripMenuItem.Text = "Option 3";
             // 
             // toolStripDropDownButton2
@@ -105,25 +105,25 @@
             this.toolStripDropDownButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton2.Image")));
             this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton2.Name = "toolStripDropDownButton2";
-            this.toolStripDropDownButton2.Size = new System.Drawing.Size(49, 24);
+            this.toolStripDropDownButton2.Size = new System.Drawing.Size(40, 22);
             this.toolStripDropDownButton2.Text = "Edit";
             // 
             // option1ToolStripMenuItem1
             // 
             this.option1ToolStripMenuItem1.Name = "option1ToolStripMenuItem1";
-            this.option1ToolStripMenuItem1.Size = new System.Drawing.Size(142, 26);
+            this.option1ToolStripMenuItem1.Size = new System.Drawing.Size(120, 22);
             this.option1ToolStripMenuItem1.Text = "Option 1";
             // 
             // option2ToolStripMenuItem1
             // 
             this.option2ToolStripMenuItem1.Name = "option2ToolStripMenuItem1";
-            this.option2ToolStripMenuItem1.Size = new System.Drawing.Size(142, 26);
+            this.option2ToolStripMenuItem1.Size = new System.Drawing.Size(120, 22);
             this.option2ToolStripMenuItem1.Text = "Option 2";
             // 
             // option3ToolStripMenuItem1
             // 
             this.option3ToolStripMenuItem1.Name = "option3ToolStripMenuItem1";
-            this.option3ToolStripMenuItem1.Size = new System.Drawing.Size(142, 26);
+            this.option3ToolStripMenuItem1.Size = new System.Drawing.Size(120, 22);
             this.option3ToolStripMenuItem1.Text = "Option 3";
             // 
             // toolStripButton1
@@ -132,7 +132,7 @@
             this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(45, 24);
+            this.toolStripButton1.Size = new System.Drawing.Size(36, 22);
             this.toolStripButton1.Text = "Help";
             // 
             // toolStripButton2
@@ -141,26 +141,24 @@
             this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(54, 24);
+            this.toolStripButton2.Size = new System.Drawing.Size(44, 22);
             this.toolStripButton2.Text = "About";
             // 
             // downloadProgressBar
             // 
-            this.downloadProgressBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            downloadProgressBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.downloadProgressBar.Location = new System.Drawing.Point(59, 398);
-            this.downloadProgressBar.Margin = new System.Windows.Forms.Padding(4);
-            this.downloadProgressBar.Name = "downloadProgressBar";
-            this.downloadProgressBar.Size = new System.Drawing.Size(692, 23);
-            this.downloadProgressBar.TabIndex = 2;
+            downloadProgressBar.Location = new System.Drawing.Point(44, 323);
+            downloadProgressBar.Name = "downloadProgressBar";
+            downloadProgressBar.Size = new System.Drawing.Size(519, 19);
+            downloadProgressBar.TabIndex = 2;
             // 
             // downloadButton
             // 
             this.downloadButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.downloadButton.Location = new System.Drawing.Point(759, 395);
-            this.downloadButton.Margin = new System.Windows.Forms.Padding(4);
+            this.downloadButton.Location = new System.Drawing.Point(569, 321);
             this.downloadButton.Name = "downloadButton";
-            this.downloadButton.Size = new System.Drawing.Size(90, 28);
+            this.downloadButton.Size = new System.Drawing.Size(68, 23);
             this.downloadButton.TabIndex = 3;
             this.downloadButton.Text = "Download";
             this.downloadButton.UseVisualStyleBackColor = true;
@@ -170,10 +168,9 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 401);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(5, 326);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 17);
+            this.label1.Size = new System.Drawing.Size(33, 13);
             this.label1.TabIndex = 4;
             this.label1.Text = "100%";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -184,12 +181,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.descriptionTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.descriptionTextBox.Location = new System.Drawing.Point(350, 27);
+            this.descriptionTextBox.Location = new System.Drawing.Point(262, 22);
             this.descriptionTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.descriptionTextBox.Name = "descriptionTextBox";
             this.descriptionTextBox.ReadOnly = true;
             this.descriptionTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
-            this.descriptionTextBox.Size = new System.Drawing.Size(336, 344);
+            this.descriptionTextBox.Size = new System.Drawing.Size(253, 280);
             this.descriptionTextBox.TabIndex = 6;
             this.descriptionTextBox.Text = "";
             this.descriptionTextBox.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.descriptionTextBox_LinkClicked);
@@ -201,20 +198,19 @@
             this.categoriesPanel.AutoScroll = true;
             this.categoriesPanel.BackColor = System.Drawing.SystemColors.Window;
             this.categoriesPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.categoriesPanel.Location = new System.Drawing.Point(9, 27);
+            this.categoriesPanel.Location = new System.Drawing.Point(7, 22);
             this.categoriesPanel.Margin = new System.Windows.Forms.Padding(2);
             this.categoriesPanel.Name = "categoriesPanel";
-            this.categoriesPanel.Size = new System.Drawing.Size(173, 344);
+            this.categoriesPanel.Size = new System.Drawing.Size(131, 280);
             this.categoriesPanel.TabIndex = 7;
             // 
             // label2
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 379);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(5, 308);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(493, 17);
+            this.label2.Size = new System.Drawing.Size(380, 13);
             this.label2.TabIndex = 8;
             this.label2.Text = "Downloading Google Chrome, 500MB / 1024MB, 1200KB/s, 5/17 downloaded";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -226,10 +222,10 @@
             this.programsPanel.AutoScroll = true;
             this.programsPanel.BackColor = System.Drawing.SystemColors.Window;
             this.programsPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.programsPanel.Location = new System.Drawing.Point(186, 27);
+            this.programsPanel.Location = new System.Drawing.Point(140, 22);
             this.programsPanel.Margin = new System.Windows.Forms.Padding(2);
             this.programsPanel.Name = "programsPanel";
-            this.programsPanel.Size = new System.Drawing.Size(160, 344);
+            this.programsPanel.Size = new System.Drawing.Size(121, 280);
             this.programsPanel.TabIndex = 8;
             // 
             // selectedPanel
@@ -240,17 +236,18 @@
             this.selectedPanel.BackColor = System.Drawing.SystemColors.Window;
             this.selectedPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.selectedPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.selectedPanel.Location = new System.Drawing.Point(691, 27);
+            this.selectedPanel.Location = new System.Drawing.Point(518, 22);
+            this.selectedPanel.Margin = new System.Windows.Forms.Padding(2);
             this.selectedPanel.Name = "selectedPanel";
-            this.selectedPanel.Size = new System.Drawing.Size(159, 344);
+            this.selectedPanel.Size = new System.Drawing.Size(120, 280);
             this.selectedPanel.TabIndex = 10;
             this.selectedPanel.WrapContents = false;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(862, 431);
+            this.ClientSize = new System.Drawing.Size(646, 350);
             this.Controls.Add(this.selectedPanel);
             this.Controls.Add(this.programsPanel);
             this.Controls.Add(this.label2);
@@ -258,10 +255,9 @@
             this.Controls.Add(this.descriptionTextBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.downloadButton);
-            this.Controls.Add(this.downloadProgressBar);
+            this.Controls.Add(downloadProgressBar);
             this.Controls.Add(this.toolStrip1);
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.MinimumSize = new System.Drawing.Size(700, 204);
+            this.MinimumSize = new System.Drawing.Size(529, 173);
             this.Name = "Form1";
             this.Text = "Download Manager";
             this.toolStrip1.ResumeLayout(false);

@@ -1,13 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Diagnostics;
 
 namespace Download_Manager
 {
@@ -17,10 +11,10 @@ namespace Download_Manager
         public List<Programs> selectedPrograms = new List<Programs>();
         int j;
 
-        public CheckBox[] checkBoxes = new CheckBox[100];
-        public Label[] labels = new Label[100];
+        public List<CheckBox> checkBoxes = new List<CheckBox>();
+        public List<Label> labels = new List<Label>();
 
-        Download download = new Download();
+        Download download = new Download(downloadProgressBar);
 
         public Form1()
         {
@@ -65,7 +59,7 @@ namespace Download_Manager
         {
             for (int i = 0; i < listing.programs.Count; i++)
             {
-                checkBoxes[i] = new CheckBox();
+                checkBoxes.Add(new CheckBox());
                 checkBoxes[i].AutoSize = true;
                 // Name = Category
                 checkBoxes[i].Name = listing.programs[i].category;
@@ -123,7 +117,7 @@ namespace Download_Manager
                 if (checkBoxes[i].Text == ((CheckBox)sender).Text)
                 {
                     // Set the description
-                    descriptionTextBox.Text = ((CheckBox)sender).Text + "\n\n" + listing.programs[i].desc + "\n\n" + listing.programs[i].url;
+                    descriptionTextBox.Text = ((CheckBox)sender).Text + "\n\n" + listing.programs[i].desc;
                     // If the program has not been added to the list yet
                     if (!listing.programs[i].added)
                     {
@@ -141,7 +135,8 @@ namespace Download_Manager
                         // For each of the selected programs
                         for (int j = 0; j < selectedPrograms.Count; j++)
                         {
-                            labels[j] = new Label();
+
+                            labels.Add(new Label());
                             labels[j].AutoSize = true;
                             // Text = Program name
                             labels[j].Text = selectedPrograms[j].name;
@@ -201,7 +196,7 @@ namespace Download_Manager
         /// </summary>
         private void downloadButton_Click(object sender, EventArgs e)
         {
-            download.DownloadItems();
+            download.DownloadItems(selectedPrograms);
         }
 
         private void descriptionTextBox_LinkClicked(object sender, LinkClickedEventArgs e)
