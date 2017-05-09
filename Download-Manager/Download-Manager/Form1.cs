@@ -201,6 +201,7 @@ namespace Download_Manager
         /// </summary>
         private void downloadButton_Click(object sender, EventArgs e)
         {
+            // Downloads the items.
             download.DownloadItems();
         }
 
