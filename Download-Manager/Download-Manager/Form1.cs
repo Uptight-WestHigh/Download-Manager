@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Net;
+using System.IO;
+using System.ComponentModel;
+using System.Diagnostics;
 
 namespace Download_Manager
 {
@@ -14,7 +18,10 @@ namespace Download_Manager
         public List<CheckBox> checkBoxes = new List<CheckBox>();
         public List<Label> labels = new List<Label>();
 
-        Download download = new Download(downloadProgressBar);
+        string downloadSite = "http://snaxdax.tk/downloadFiles/";
+        WebClient webClient = new WebClient();
+        int i = 0;
+        string saveTo = Directory.GetCurrentDirectory();
 
         public Form1()
         {
@@ -196,7 +203,46 @@ namespace Download_Manager
         /// </summary>
         private void downloadButton_Click(object sender, EventArgs e)
         {
-            download.DownloadItems(selectedPrograms);
+            DownloadItems();
+        }
+
+        private void DownloadItems()
+        {
+            if (i < selectedPrograms.Count)
+            {
+                MessageBox.Show("Currently downloading " + selectedPrograms[i].name + "\nURL: " + downloadSite + selectedPrograms[i].url);
+                webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);
+                webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
+                webClient.DownloadFileAsync(new Uri(downloadSite + selectedPrograms[i].url), saveTo + selectedPrograms[i].url);
+                i++;
+            }
+        }
+
+        /// <summary>
+        /// Changes the value of the progressbar to show download progress.
+        /// </summary>
+        private void ProgressChanged(object sender, DownloadProgressChangedEventArgs e)
+        {
+            float bytesIn = float.Parse(e.BytesReceived.ToString());
+            float totalBytes = float.Parse(e.TotalBytesToReceive.ToString());
+            float percentage = bytesIn / totalBytes * 100f;
+            float bytesRecieved = e.BytesReceived / 1048576f;
+            float bytesToRecieve = e.TotalBytesToReceive / 1048576f;
+            // Displays the current status.
+            // Downloading (ProgramName), (BytesRecieved) / (BytesToRecieve), (Speed), (Done) / (Total)
+            label2.Text = "Downloading " + selectedPrograms[i-1].name + ", " + bytesRecieved.ToString("0.##") + "MB / " + bytesToRecieve.ToString("0.##") + "MB, ";
+            downloadProgressBar.Value = int.Parse(Math.Truncate(percentage).ToString());
+            label1.Text = Convert.ToString(int.Parse(Math.Truncate(percentage).ToString())) + "%";
+        }
+
+        /// <summary>
+        /// Called when the download is finished.
+        /// Opens the Windows Explorer to the download location.
+        /// </summary>
+        private void Completed(object sender, AsyncCompletedEventArgs e)
+        {
+            Process.Start(saveTo);
+            DownloadItems();
         }
 
         private void descriptionTextBox_LinkClicked(object sender, LinkClickedEventArgs e)
