@@ -22,6 +22,7 @@ namespace Download_Manager
         WebClient webClient = new WebClient();
         int i = 0;
         string saveTo = Directory.GetCurrentDirectory();
+        Stopwatch sw = new Stopwatch();
 
         public Form1()
         {
@@ -180,6 +181,10 @@ namespace Download_Manager
                     }
                 }
             }
+            if (selectedPrograms.Count > 0)
+                downloadButton.Enabled = true;
+            else
+                downloadButton.Enabled = false;
 
         }
 
@@ -203,6 +208,8 @@ namespace Download_Manager
         /// </summary>
         private void downloadButton_Click(object sender, EventArgs e)
         {
+            label2.Text = "Initializing download.";
+            downloadButton.Enabled = false;
             DownloadItems();
         }
 
@@ -210,11 +217,16 @@ namespace Download_Manager
         {
             if (i < selectedPrograms.Count)
             {
-                MessageBox.Show("Currently downloading " + selectedPrograms[i].name + "\nURL: " + downloadSite + selectedPrograms[i].url);
+                sw.Start();
                 webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);
                 webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
-                webClient.DownloadFileAsync(new Uri(downloadSite + selectedPrograms[i].url), saveTo + selectedPrograms[i].url);
+                webClient.DownloadFileAsync(new Uri(downloadSite + selectedPrograms[i].url), selectedPrograms[i].url);
                 i++;
+            }
+            else
+            {
+                label2.Text = "All files downloaded.";
+                Process.Start(saveTo);
             }
         }
 
@@ -228,11 +240,16 @@ namespace Download_Manager
             float percentage = bytesIn / totalBytes * 100f;
             float bytesRecieved = e.BytesReceived / 1048576f;
             float bytesToRecieve = e.TotalBytesToReceive / 1048576f;
+            double byteSpeed = e.BytesReceived / 1024d / sw.Elapsed.TotalSeconds;   // Calculate download speed
+
             // Displays the current status.
             // Downloading (ProgramName), (BytesRecieved) / (BytesToRecieve), (Speed), (Done) / (Total)
-            label2.Text = "Downloading " + selectedPrograms[i-1].name + ", " + bytesRecieved.ToString("0.##") + "MB / " + bytesToRecieve.ToString("0.##") + "MB, ";
-            downloadProgressBar.Value = int.Parse(Math.Truncate(percentage).ToString());
-            label1.Text = Convert.ToString(int.Parse(Math.Truncate(percentage).ToString())) + "%";
+            label2.Text = "Downloading " + selectedPrograms[i-1].name + ", "                            // Display name
+                + bytesRecieved.ToString("0.00") + "MB / " + bytesToRecieve.ToString("0.00") + "MB, "   // Display bytes downloaded / total
+                + string.Format("{0} kb/s", (byteSpeed).ToString("0.00")) + ", "                        // Display download speed
+                + i + " / " + selectedPrograms.Count + " downloaded.";                                  // Display amount of programs downloaded / total
+            downloadProgressBar.Value = int.Parse(Math.Truncate(percentage).ToString());                // Set the value of the progressbar
+            label1.Text = Convert.ToString(int.Parse(Math.Truncate(percentage).ToString())) + "%";      // Display percentage done
         }
 
         /// <summary>
@@ -241,19 +258,29 @@ namespace Download_Manager
         /// </summary>
         private void Completed(object sender, AsyncCompletedEventArgs e)
         {
-            Process.Start(saveTo);
+            // Reset the stopwatch
+            sw.Reset();
+            // Display what program was just completed
+            label2.Text = selectedPrograms[i - 1].name + " downloaded.";
+            webClient.CancelAsync();
+            // Download the next items
             DownloadItems();
         }
 
-        private void descriptionTextBox_LinkClicked(object sender, LinkClickedEventArgs e)
+        /// <summary>
+        /// If you press the X in the top right of the window
+        /// Stops the program from closing, asks for confirmation
+        /// </summary>
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //RichTextBox linkBox = (RichTextBox)sender;
-            //for (int i = 0; i < listing.programs.Count; i++)
-            //{
-            //    if (listing.programs[i].text = linkBox.Name)
-            //}
-            //ProcessStartInfo sInfo = new ProcessStartInfo(listing.programs[i].url);
-            //Process.Start(sInfo);
+            // Display a message
+            // Ask for confirmation
+            var result = MessageBox.Show("Are you sure that you want to close the program? \nAll unfinished downloads will be lost.", "Confirmation",
+                             MessageBoxButtons.YesNo,
+                             MessageBoxIcon.Question);
+
+            // If the answer is "no", stop the program from exiting.
+            e.Cancel = (result == DialogResult.No);
         }
     }
 }

@@ -148,10 +148,10 @@
             // 
             this.downloadProgressBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.downloadProgressBar.Location = new System.Drawing.Point(59, 398);
-            this.downloadProgressBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.downloadProgressBar.Location = new System.Drawing.Point(51, 398);
+            this.downloadProgressBar.Margin = new System.Windows.Forms.Padding(4);
             this.downloadProgressBar.Name = "downloadProgressBar";
-            this.downloadProgressBar.Size = new System.Drawing.Size(692, 23);
+            this.downloadProgressBar.Size = new System.Drawing.Size(700, 23);
             this.downloadProgressBar.Step = 1;
             this.downloadProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.downloadProgressBar.TabIndex = 2;
@@ -159,8 +159,9 @@
             // downloadButton
             // 
             this.downloadButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.downloadButton.Enabled = false;
             this.downloadButton.Location = new System.Drawing.Point(759, 395);
-            this.downloadButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.downloadButton.Margin = new System.Windows.Forms.Padding(4);
             this.downloadButton.Name = "downloadButton";
             this.downloadButton.Size = new System.Drawing.Size(91, 28);
             this.downloadButton.TabIndex = 3;
@@ -175,9 +176,9 @@
             this.label1.Location = new System.Drawing.Point(7, 401);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 17);
+            this.label1.Size = new System.Drawing.Size(28, 17);
             this.label1.TabIndex = 4;
-            this.label1.Text = "100%";
+            this.label1.Text = "0%";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // descriptionTextBox
@@ -189,12 +190,10 @@
             this.descriptionTextBox.Location = new System.Drawing.Point(349, 27);
             this.descriptionTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.descriptionTextBox.Name = "descriptionTextBox";
-            this.descriptionTextBox.ReadOnly = true;
             this.descriptionTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
             this.descriptionTextBox.Size = new System.Drawing.Size(336, 344);
             this.descriptionTextBox.TabIndex = 6;
             this.descriptionTextBox.Text = "";
-            this.descriptionTextBox.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.descriptionTextBox_LinkClicked);
             // 
             // categoriesPanel
             // 
@@ -213,12 +212,12 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 379);
+            this.label2.Location = new System.Drawing.Point(7, 377);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(493, 17);
+            this.label2.Size = new System.Drawing.Size(363, 17);
             this.label2.TabIndex = 8;
-            this.label2.Text = "Downloading Google Chrome, 500MB / 1024MB, 1200KB/s, 5/17 downloaded";
+            this.label2.Text = "Select what programs to download and press the button.";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // programsPanel
@@ -263,10 +262,11 @@
             this.Controls.Add(this.downloadButton);
             this.Controls.Add(this.downloadProgressBar);
             this.Controls.Add(this.toolStrip1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(699, 202);
             this.Name = "Form1";
             this.Text = "Download Manager";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);

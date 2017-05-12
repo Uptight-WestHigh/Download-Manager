@@ -51,21 +51,21 @@ namespace Download_Manager
             // Name, ID, Category, Description, URL
 
             // Web browsers
-            programs.Add(new Programs("Google Chrome", i, "Web Browsers", "The world's most popular web browser.", "ChromeSetup.exe")); i++;
-            programs.Add(new Programs("Mozilla Firefox", i, "Web Browsers", "An open source browser.", "FirefoxSetup.exe")); i++;
-            programs.Add(new Programs("Opera", i, "Web Browsers", "Based on chrome, but more customizable.", "OperaSetup")); i++;
-            programs.Add(new Programs("Microsoft Edge", i, "Web Browsers", "", "")); i++;
-            programs.Add(new Programs("Vivaldi", i, "Web Browsers", "", "")); i++;
-            programs.Add(new Programs("Safari", i, "Web Browsers", "", "")); i++;
+            programs.Add(new Programs("Google Chrome", i, "Web Browsers", "Fast Browser by Google", "ChromeSetup.exe")); i++;
+            programs.Add(new Programs("Opera", i, "Web Browsers", "Alternative Browser.", "OperaSetup.exe")); i++;
+            programs.Add(new Programs("Mozilla Firefox", i, "Web Browsers", "Extensible Browser.", "FirefoxSetup.exe")); i++;
 
             // File Sharing
-            programs.Add(new Programs("qBittorrent", i, "File Sharing", "", "")); i++;
-            programs.Add(new Programs("eMule", i, "File Sharing", "", "")); i++;
+            programs.Add(new Programs("qBittorrent 32-bit", i, "File Sharing", "Free Bittorrent Client (32-bit)", "qBittorrentSetup.exe")); i++;
+            programs.Add(new Programs("qBittorrent 64-bit", i, "File Sharing", "Free Bittorrent Client (64-bit)", "qBittorrentSetup64.exe")); i++;
+            programs.Add(new Programs("eMule", i, "File Sharing", "File Sharing Client", "eMuleSetup.exe")); i++;
 
             // Compression
-            programs.Add(new Programs("7-zip", i, "Compression", "", "")); i++;
-            programs.Add(new Programs("PeaZip", i, "Compression", "", "")); i++;
-            programs.Add(new Programs("WinRar", i, "Compression", "", "")); i++;
+            programs.Add(new Programs("7-zip 32-bit", i, "Compression", "Great Compression App (32-bit)", "7-zipSetup.exe")); i++;
+            programs.Add(new Programs("7-zip 64-bit", i, "Compression", "Great Compression App (64-bit)", "7-zipSetup64.exe")); i++;
+            programs.Add(new Programs("PeaZip", i, "Compression", "File Compression Tool", "PeaZipSetup.exe")); i++;
+            programs.Add(new Programs("WinRar 32-bit", i, "Compression", "Another Compression Tool (32-bit)", "WinRarSetup.exe")); i++;
+            programs.Add(new Programs("WinRar 64-bit", i, "Compression", "Another Compression Tool (64-bit)", "WinRarSetup64.exe")); i++;
 
             // Messaging
             programs.Add(new Programs("Skype", i, "Messaging", "", "")); i++;
