@@ -8,9 +8,9 @@
         public string desc;
         public bool added = false;
 
-        public Programs(string name, int id, string programCategory, string desc, string url) : base(name, id)
+        public Programs(string name, int id, string category, string desc, string url) : base(name, id)
         {
-            this.category = programCategory;
+            this.category = category;
             this.url = url;
             this.desc = desc;
         }

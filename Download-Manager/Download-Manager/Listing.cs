@@ -68,98 +68,72 @@ namespace Download_Manager
             programs.Add(new Programs("WinRar 64-bit", i, "Compression", "Another Compression Tool (64-bit)", "WinRarSetup64.exe")); i++;
 
             // Messaging
-            programs.Add(new Programs("Skype", i, "Messaging", "", "")); i++;
-            programs.Add(new Programs("Pidgin", i, "Messaging", "", "")); i++;
-            programs.Add(new Programs("Thunderbird", i, "Messaging", "", "")); i++;
-            programs.Add(new Programs("Trillian", i, "Messaging", "", "")); i++;
-            programs.Add(new Programs("AIM", i, "Messaging", "", "")); i++;
+            programs.Add(new Programs("Skype", i, "Messaging", "Internet Telephone", "SkypeSetup.exe")); i++;
+            programs.Add(new Programs("Pidgin", i, "Messaging", "Multi-IM Client", "PidginSetup.exe")); i++;
+            programs.Add(new Programs("Thunderbird", i, "Messaging", "Email Reader by Mozilla", "ThunderbirdSetup.exe")); i++;
+            programs.Add(new Programs("Trillian", i, "Messaging", "Trillian IM", "TrillianSetup.exe")); i++;
 
             // Online Storage
-            programs.Add(new Programs("Dropbox", i, "Online Storage", "", "")); i++;
-            programs.Add(new Programs("Google Drive", i, "Online Storage", "", "")); i++;
-            programs.Add(new Programs("Mozy", i, "Online Storage", "", "")); i++;
-            programs.Add(new Programs("OneDrive", i, "Online Storage", "", "")); i++;
-            programs.Add(new Programs("SugarSync", i, "Online Storage", "", "")); i++;
+            programs.Add(new Programs("Dropbox", i, "Online Storage", "", "DropboxSetup.exe")); i++;
+            programs.Add(new Programs("Google Drive", i, "Online Storage", "", "GoogleDriveSetup.exe")); i++;
+            programs.Add(new Programs("OneDrive", i, "Online Storage", "", "OneDriveSetup.exe")); i++;
+            programs.Add(new Programs("SugarSync", i, "Online Storage", "", "SugarSyncSetup.exe")); i++;
 
             // Media
-            programs.Add(new Programs("iTunes", i, "Media", "", "")); i++;
-            programs.Add(new Programs("VLC", i, "Media", "", "")); i++;
-            programs.Add(new Programs("AIMP", i, "Media", "", "")); i++;
-            programs.Add(new Programs("foobar2000", i, "Media", "", "")); i++;
-            programs.Add(new Programs("Winamp", i, "Media", "", "")); i++;
-            programs.Add(new Programs("Audacity", i, "Media", "", "")); i++;
-            programs.Add(new Programs("K-Lite Codecs", i, "Media", "", "")); i++;
-            programs.Add(new Programs("GOM", i, "Media", "", "")); i++;
-            programs.Add(new Programs("CCCP", i, "Media", "", "")); i++;
-            programs.Add(new Programs("MediaMonkey", i, "Media", "", "")); i++;
-            programs.Add(new Programs("HandBrake", i, "Media", "", "")); i++;
+            programs.Add(new Programs("iTunes", i, "Media", "", "iTunesSetup64.exe")); i++;
+            programs.Add(new Programs("VLC", i, "Media", "", "VLCSetup.exe")); i++;
+            programs.Add(new Programs("Winamp", i, "Media", "", "WinampSetup.exe")); i++;
+            programs.Add(new Programs("Audacity", i, "Media", "", "AudacitySetup.exe")); i++;
+            programs.Add(new Programs("Spotify", i, "Media", "", "SpotifySetup.exe")); i++;
+            programs.Add(new Programs("HandBrake", i, "Media", "", "HandBrakeSetup.exe")); i++;
 
             // Runtimes
-            programs.Add(new Programs("Java 8", i, "Runtimes", "", "")); i++;
-            programs.Add(new Programs(".NET 4.6.2", i, "Runtimes", "", "")); i++;
-            programs.Add(new Programs("Silverlight", i, "Runtimes", "", "")); i++;
-            programs.Add(new Programs("Air", i, "Runtimes", "", "")); i++;
-            programs.Add(new Programs("Shockwave", i, "Runtimes", "", "")); i++;
+            programs.Add(new Programs("Java 8", i, "Runtimes", "", "Java8Setup.exe")); i++;
+            programs.Add(new Programs(".NET 4.6.2", i, "Runtimes", "", ".NET4.6.2Setup.exe")); i++;
+            programs.Add(new Programs("Silverlight", i, "Runtimes", "", "SilverlightSetup.exe")); i++;
+            programs.Add(new Programs("Air", i, "Runtimes", "", "AirSetup.exe")); i++;
+            programs.Add(new Programs("Shockwave", i, "Runtimes", "", "ShockwaveSetup.exe")); i++;
 
             // Other
-            programs.Add(new Programs("Evernote", i, "Other", "", "")); i++;
-            programs.Add(new Programs("Google Earth", i, "Other", "", "")); i++;
-            programs.Add(new Programs("Steam", i, "Other", "", "")); i++;
-            programs.Add(new Programs("KeePass 2", i, "Other", "", "")); i++;
-            programs.Add(new Programs("Everything", i, "Other", "", "")); i++;
-            programs.Add(new Programs("NV Access", i, "Other", "", "")); i++;
+            programs.Add(new Programs("Evernote", i, "Other", "", "EvernoteSetup.exe")); i++;
+            programs.Add(new Programs("Google Earth", i, "Other", "", "GoogleEarthSetup.exe")); i++;
+            programs.Add(new Programs("Steam", i, "Other", "", "SteamSetup.exe")); i++;
 
             // Imaging
-            programs.Add(new Programs("Paint.NET", i, "Imaging", "", "")); i++;
-            programs.Add(new Programs("GIMP", i, "Imaging", "", "")); i++;
-            programs.Add(new Programs("IrfanView", i, "Imaging", "", "")); i++;
-            programs.Add(new Programs("XnView", i, "Imaging", "", "")); i++;
-            programs.Add(new Programs("InkScape", i, "Imaging", "", "")); i++;
-            programs.Add(new Programs("FastStone", i, "Imaging", "", "")); i++;
-            programs.Add(new Programs("ShareX", i, "Imaging", "", "")); i++;
+            programs.Add(new Programs("Paint.NET", i, "Imaging", "", "PaintNetSetup.exe")); i++;
+            programs.Add(new Programs("GIMP", i, "Imaging", "", "GimpSetup.exe")); i++;
+            programs.Add(new Programs("InkScape 32-bit", i, "Imaging", "", "InkScapeSetup.exe")); i++;
+            programs.Add(new Programs("InkScape 64-bit", i, "Imaging", "", "InkScapeSetup64.exe")); i++;
+            programs.Add(new Programs("ShareX", i, "Imaging", "", "ShareXSetup.exe")); i++;
 
             // Developer Tools
-            programs.Add(new Programs("Python", i, "Developer Tools", "", "")); i++;
-            programs.Add(new Programs("FileZilla", i, "Developer Tools", "", "")); i++;
-            programs.Add(new Programs("Notepad++", i, "Developer Tools", "", "")); i++;
-            programs.Add(new Programs("JDK 8", i, "Developer Tools", "", "")); i++;
-            programs.Add(new Programs("JDK x64 8", i, "Developer Tools", "", "")); i++;
-            programs.Add(new Programs("WinSCP", i, "Developer Tools", "", "")); i++;
-            programs.Add(new Programs("PuTTY", i, "Developer Tools", "", "")); i++;
-            programs.Add(new Programs("WinMerge", i, "Developer Tools", "", "")); i++;
-            programs.Add(new Programs("Eclipse", i, "Developer Tools", "", "")); i++;
-            programs.Add(new Programs("Visual Studio", i, "Developer Tools", "", "")); i++;
+            programs.Add(new Programs("Python", i, "Developer Tools", "", "PythonSetup.exe")); i++;
+            programs.Add(new Programs("FileZilla 32-bit", i, "Developer Tools", "", "FileZillaSetup.exe")); i++;
+            programs.Add(new Programs("FileZilla 64-bit", i, "Developer Tools", "", "FileZillaSetup64.exe")); i++;
+            programs.Add(new Programs("Notepad++", i, "Developer Tools", "", "Notepad++Setup.exe")); i++;
+            programs.Add(new Programs("JDK 8 32-bit", i, "Developer Tools", "", "JDK8Setup.exe")); i++;
+            programs.Add(new Programs("JDK 8 64-bit", i, "Developer Tools", "", "JDK8Setup64.exe")); i++;
+            programs.Add(new Programs("Eclipse 32-bit", i, "Developer Tools", "", "EclipseSetup.exe")); i++;
+            programs.Add(new Programs("Eclipse 64-bit", i, "Developer Tools", "", "EclipseSetup64.exe")); i++;
+            programs.Add(new Programs("Visual Studio Code", i, "Developer Tools", "", "VisualStudioCodeSetup.exe")); i++;
 
             // Documents
-            programs.Add(new Programs("Foxit Reader", i, "Documents", "", "")); i++;
-            programs.Add(new Programs("Libreoffice", i, "Documents", "", "")); i++;
-            programs.Add(new Programs("SumatraPDF", i, "Documents", "", "")); i++;
-            programs.Add(new Programs("CutePDF", i, "Documents", "", "")); i++;
-            programs.Add(new Programs("PDFCreator", i, "Documents", "", "")); i++;
-            programs.Add(new Programs("OpenOffice", i, "Documents", "", "")); i++;
+            programs.Add(new Programs("Libreoffice", i, "Documents", "", "LibreOfficeSetup.msi")); i++;
+            programs.Add(new Programs("OpenOffice", i, "Documents", "", "OpenOfficeSetup.exe")); i++;
 
             // Utilities
-            programs.Add(new Programs("Teamwiever 12", i, "Utilities", "", "")); i++;
-            programs.Add(new Programs("ImgBurn", i, "Utilities", "", "")); i++;
-            programs.Add(new Programs("RealVNC", i, "Utilities", "", "")); i++;
-            programs.Add(new Programs("TeraCopy", i, "Utilities", "", "")); i++;
-            programs.Add(new Programs("CDBurnerXP", i, "Utilities", "", "")); i++;
-            programs.Add(new Programs("Revo", i, "Utilities", "", "")); i++;
-            programs.Add(new Programs("Launchy", i, "Utilities", "", "")); i++;
-            programs.Add(new Programs("WinDirStat", i, "Utilities", "", "")); i++;
-            programs.Add(new Programs("Glary", i, "Utilities", "", "")); i++;
-            programs.Add(new Programs("InfraRecorder", i, "Utilities", "", "")); i++;
-            programs.Add(new Programs("Classic Start", i, "Utilities", "", "")); i++;
+            programs.Add(new Programs("TeamViewer 12", i, "Utilities", "", "TeamViewer12Setup.exe")); i++;
+            programs.Add(new Programs("ImgBurn", i, "Utilities", "", "ImgBurnSetup.exe")); i++;
+            programs.Add(new Programs("WinDirStat", i, "Utilities", "", "WinDirStatSetup.exe")); i++;
+            programs.Add(new Programs("Classic Start 8", i, "Utilities", "", "ClassicStart8Setup.exe")); i++;
 
             // Security
-            programs.Add(new Programs("Microsoft Essentials", i, "Security", "", "")); i++;
-            programs.Add(new Programs("Avast", i, "Security", "", "")); i++;
-            programs.Add(new Programs("AVG", i, "Security", "", "")); i++;
-            programs.Add(new Programs("Malwarebytes", i, "Security", "", "")); i++;
-            programs.Add(new Programs("Ad-Aware", i, "Security", "", "")); i++;
-            programs.Add(new Programs("Spybot 2", i, "Security", "", "")); i++;
-            programs.Add(new Programs("Avira", i, "Security", "", "")); i++;
-            programs.Add(new Programs("SUPERAntiSpyware", i, "Security", "", "")); i++;
+            programs.Add(new Programs("Microsoft Security Essentials 32-bit", i, "Security", "", "MicrosoftSecurityEssentialsSetup.exe")); i++;
+            programs.Add(new Programs("Microsoft Security Essentials 64-bit", i, "Security", "", "MicrosoftSecurityEssentialsSetup64.exe")); i++;
+            programs.Add(new Programs("Avast", i, "Security", "", "AvastSetup.exe")); i++;
+            programs.Add(new Programs("AVG", i, "Security", "", "AVGSetup.exe")); i++;
+            programs.Add(new Programs("Malwarebytes", i, "Security", "", "MalwarebytesSetup.exe")); i++;
+            programs.Add(new Programs("Avira", i, "Security", "", "AviraSetup.exe")); i++;
         }
     }
 }

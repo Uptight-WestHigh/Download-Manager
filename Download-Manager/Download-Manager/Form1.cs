@@ -220,7 +220,7 @@ namespace Download_Manager
                 sw.Start();
                 webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);
                 webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
-                webClient.DownloadFileAsync(new Uri(downloadSite + selectedPrograms[i].url), selectedPrograms[i].url);
+                webClient.DownloadFileAsync(new Uri(downloadSite + selectedPrograms[i].category + "/" + selectedPrograms[i].url), selectedPrograms[i].url);
                 i++;
             }
             else
