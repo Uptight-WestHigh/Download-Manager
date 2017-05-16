@@ -20,7 +20,7 @@ namespace Download_Manager
 
         string downloadSite = "http://snaxdax.tk/downloadFiles/";
         WebClient webClient = new WebClient();
-        int i = 0;
+        int dc = 0;
         string saveTo = Directory.GetCurrentDirectory();
         Stopwatch sw = new Stopwatch();
 
@@ -131,10 +131,7 @@ namespace Download_Manager
                     {
                         // Remove all programs in the list
                         // To clear and replace with the programs still left.
-                        for (int i2 = 0; i2 < selectedPrograms.Count; i2++)
-                        {
-                            selectedPanel.Controls.RemoveAt(0);
-                        }
+                        selectedPanel.Controls.Clear();
 
                         // Add current program to the list of selected programs
                         selectedPrograms.Add(listing.programs[i]);
@@ -215,13 +212,15 @@ namespace Download_Manager
 
         private void DownloadItems()
         {
-            if (i < selectedPrograms.Count)
+            if (dc < selectedPrograms.Count)
             {
+                webClient.CancelAsync();
+                sw.Reset();
                 sw.Start();
                 webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);
                 webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
-                webClient.DownloadFileAsync(new Uri(downloadSite + selectedPrograms[i].category + "/" + selectedPrograms[i].url), selectedPrograms[i].url);
-                i++;
+                webClient.DownloadFileAsync(new Uri(downloadSite + selectedPrograms[dc].category + "/" + selectedPrograms[dc].url), selectedPrograms[dc].url);
+                dc++;
             }
             else
             {
@@ -244,10 +243,10 @@ namespace Download_Manager
 
             // Displays the current status.
             // Downloading (ProgramName), (BytesRecieved) / (BytesToRecieve), (Speed), (Done) / (Total)
-            label2.Text = "Downloading " + selectedPrograms[i-1].name + ", "                            // Display name
+            label2.Text = "Downloading " + selectedPrograms[dc-1].name + ", "                            // Display name
                 + bytesRecieved.ToString("0.00") + "MB / " + bytesToRecieve.ToString("0.00") + "MB, "   // Display bytes downloaded / total
                 + string.Format("{0} kb/s", (byteSpeed).ToString("0.00")) + ", "                        // Display download speed
-                + i + " / " + selectedPrograms.Count + " downloaded.";                                  // Display amount of programs downloaded / total
+                + dc + " / " + selectedPrograms.Count + " downloaded.";                                  // Display amount of programs downloaded / total
             downloadProgressBar.Value = int.Parse(Math.Truncate(percentage).ToString());                // Set the value of the progressbar
             label1.Text = Convert.ToString(int.Parse(Math.Truncate(percentage).ToString())) + "%";      // Display percentage done
         }
@@ -261,7 +260,7 @@ namespace Download_Manager
             // Reset the stopwatch
             sw.Reset();
             // Display what program was just completed
-            label2.Text = selectedPrograms[i - 1].name + " downloaded.";
+            label2.Text = selectedPrograms[dc - 1].name + " downloaded.";
             webClient.CancelAsync();
             // Download the next items
             DownloadItems();
