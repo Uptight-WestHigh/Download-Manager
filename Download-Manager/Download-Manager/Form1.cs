@@ -13,7 +13,6 @@ namespace Download_Manager
     {
         public static Listing listing = new Listing();
         public List<Programs> selectedPrograms = new List<Programs>();
-        int j;
 
         public List<CheckBox> checkBoxes = new List<CheckBox>();
         public List<Label> labels = new List<Label>();
@@ -34,6 +33,7 @@ namespace Download_Manager
             CreatePrograms();
         }
 
+        #region Creating
         /// <summary>
         /// Creates all the categories
         /// </summary>
@@ -65,6 +65,7 @@ namespace Download_Manager
         /// </summary>
         private void CreatePrograms()
         {
+            int j = 0;
             for (int i = 0; i < listing.programs.Count; i++)
             {
                 checkBoxes.Add(new CheckBox());
@@ -90,7 +91,9 @@ namespace Download_Manager
                 programsPanel.Controls.Add(checkBoxes[i]);
             }
         }
+        #endregion
 
+        #region Radiobutton / Checkbox clicking
         /// <summary>
         /// Triggered when a radiobutton in the categories is changed
         /// </summary>
@@ -184,6 +187,7 @@ namespace Download_Manager
                 downloadButton.Enabled = false;
 
         }
+        #endregion
 
         /// <summary>
         /// Get the list item ID that matches the checkbox
@@ -200,6 +204,7 @@ namespace Download_Manager
             return -1;
         }
 
+        #region Downloading
         /// <summary>
         /// Download every selected object
         /// </summary>
@@ -214,13 +219,18 @@ namespace Download_Manager
         {
             if (dc < selectedPrograms.Count)
             {
-                webClient.CancelAsync();
-                sw.Reset();
-                sw.Start();
-                webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);
-                webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
-                webClient.DownloadFileAsync(new Uri(downloadSite + selectedPrograms[dc].category + "/" + selectedPrograms[dc].url), selectedPrograms[dc].url);
-                dc++;
+                if (!webClient.IsBusy)
+                {
+                    sw.Start();
+                    webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);
+                    webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
+                    webClient.DownloadFileAsync(new Uri(downloadSite + selectedPrograms[dc].category + "/" + selectedPrograms[dc].url), selectedPrograms[dc].url);
+                    dc++;
+                }
+                else
+                {
+                    webClient.CancelAsync();
+                }
             }
             else
             {
@@ -261,9 +271,10 @@ namespace Download_Manager
             sw.Reset();
             // Display what program was just completed
             label2.Text = selectedPrograms[dc - 1].name + " downloaded.";
-            webClient.CancelAsync();
+
             // Download the next items
-            DownloadItems();
+            if (dc < selectedPrograms.Count)
+                DownloadItems();
         }
 
         /// <summary>
@@ -281,5 +292,6 @@ namespace Download_Manager
             // If the answer is "no", stop the program from exiting.
             e.Cancel = (result == DialogResult.No);
         }
+        #endregion
     }
 }
