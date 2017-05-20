@@ -283,7 +283,7 @@
         private System.Windows.Forms.ToolStripMenuItem option1ToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem option2ToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem option3ToolStripMenuItem1;
-        public System.Windows.Forms.ProgressBar downloadProgressBar;
+        private System.Windows.Forms.ProgressBar downloadProgressBar;
         private System.Windows.Forms.Button downloadButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RichTextBox descriptionTextBox;

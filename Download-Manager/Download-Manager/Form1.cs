@@ -17,8 +17,9 @@ namespace Download_Manager
         public List<CheckBox> checkBoxes = new List<CheckBox>();
         public List<Label> labels = new List<Label>();
 
+        WebClient webClient;
+
         string downloadSite = "http://snaxdax.tk/downloadFiles/";
-        WebClient webClient = new WebClient();
         int dc = 0;
         string saveTo = Directory.GetCurrentDirectory();
         Stopwatch sw = new Stopwatch();
@@ -210,32 +211,49 @@ namespace Download_Manager
         /// </summary>
         private void downloadButton_Click(object sender, EventArgs e)
         {
+            if (!Directory.Exists(Directory.GetCurrentDirectory() + "/Setups/"))
+                Directory.CreateDirectory(Directory.GetCurrentDirectory() + "/Setups/");
             label2.Text = "Initializing download.";
+            // Disable the button to prevent errors
             downloadButton.Enabled = false;
+            // Start the Downloading method
             DownloadItems();
         }
 
+        /// <summary>
+        /// Downloads the selected items
+        /// </summary>
         private void DownloadItems()
         {
+            // Create new webclient
+            // This was the solution to downloading several installers
+            webClient = new WebClient();
+
+            // Dispose and reset the webclient and stopwatch
+            webClient.Dispose();
+            sw.Reset();
             if (dc < selectedPrograms.Count)
             {
                 if (!webClient.IsBusy)
                 {
+                    Debug.WriteLine("Downloading " + selectedPrograms[dc].url);
                     sw.Start();
                     webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);
                     webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
-                    webClient.DownloadFileAsync(new Uri(downloadSite + selectedPrograms[dc].category + "/" + selectedPrograms[dc].url), selectedPrograms[dc].url);
+                    webClient.DownloadFileAsync(new Uri(downloadSite + selectedPrograms[dc].category + "/" + selectedPrograms[dc].url), "Setups/" + selectedPrograms[dc].url);
                     dc++;
                 }
                 else
                 {
                     webClient.CancelAsync();
+                    DownloadItems();
                 }
             }
             else
             {
+                Debug.WriteLine("All files downloaded. Open explorer.");
                 label2.Text = "All files downloaded.";
-                Process.Start(saveTo);
+                Process.Start(saveTo + "/Setups/");
             }
         }
 
@@ -259,6 +277,7 @@ namespace Download_Manager
                 + dc + " / " + selectedPrograms.Count + " downloaded.";                                  // Display amount of programs downloaded / total
             downloadProgressBar.Value = int.Parse(Math.Truncate(percentage).ToString());                // Set the value of the progressbar
             label1.Text = Convert.ToString(int.Parse(Math.Truncate(percentage).ToString())) + "%";      // Display percentage done
+            Debug.Write(Convert.ToString(int.Parse(Math.Truncate(percentage).ToString())) + "% ");
         }
 
         /// <summary>
@@ -267,14 +286,16 @@ namespace Download_Manager
         /// </summary>
         private void Completed(object sender, AsyncCompletedEventArgs e)
         {
+            Debug.WriteLine(selectedPrograms[dc - 1].name + " downloaded.");
             // Reset the stopwatch
             sw.Reset();
             // Display what program was just completed
             label2.Text = selectedPrograms[dc - 1].name + " downloaded.";
 
-            // Download the next items
-            if (dc < selectedPrograms.Count)
-                DownloadItems();
+            webClient.CancelAsync();
+            webClient.Dispose();
+
+            DownloadItems();
         }
 
         /// <summary>
