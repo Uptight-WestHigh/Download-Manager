@@ -32,10 +32,6 @@
             this.option1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.option2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.option3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.option1ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.option2ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.option3ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.downloadProgressBar = new System.Windows.Forms.ProgressBar();
@@ -55,12 +51,11 @@
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripDropDownButton1,
-            this.toolStripDropDownButton2,
             this.toolStripButton1,
             this.toolStripButton2});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(206, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(157, 27);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -80,51 +75,21 @@
             // option1ToolStripMenuItem
             // 
             this.option1ToolStripMenuItem.Name = "option1ToolStripMenuItem";
-            this.option1ToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
-            this.option1ToolStripMenuItem.Text = "Option 1";
+            this.option1ToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.option1ToolStripMenuItem.Text = "Update";
+            this.option1ToolStripMenuItem.Click += new System.EventHandler(this.option1ToolStripMenuItem_Click);
             // 
             // option2ToolStripMenuItem
             // 
             this.option2ToolStripMenuItem.Name = "option2ToolStripMenuItem";
-            this.option2ToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
-            this.option2ToolStripMenuItem.Text = "Option 2";
+            this.option2ToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.option2ToolStripMenuItem.Text = "Reload";
             // 
             // option3ToolStripMenuItem
             // 
             this.option3ToolStripMenuItem.Name = "option3ToolStripMenuItem";
-            this.option3ToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
-            this.option3ToolStripMenuItem.Text = "Option 3";
-            // 
-            // toolStripDropDownButton2
-            // 
-            this.toolStripDropDownButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripDropDownButton2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.option1ToolStripMenuItem1,
-            this.option2ToolStripMenuItem1,
-            this.option3ToolStripMenuItem1});
-            this.toolStripDropDownButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton2.Image")));
-            this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButton2.Name = "toolStripDropDownButton2";
-            this.toolStripDropDownButton2.Size = new System.Drawing.Size(49, 24);
-            this.toolStripDropDownButton2.Text = "Edit";
-            // 
-            // option1ToolStripMenuItem1
-            // 
-            this.option1ToolStripMenuItem1.Name = "option1ToolStripMenuItem1";
-            this.option1ToolStripMenuItem1.Size = new System.Drawing.Size(142, 26);
-            this.option1ToolStripMenuItem1.Text = "Option 1";
-            // 
-            // option2ToolStripMenuItem1
-            // 
-            this.option2ToolStripMenuItem1.Name = "option2ToolStripMenuItem1";
-            this.option2ToolStripMenuItem1.Size = new System.Drawing.Size(142, 26);
-            this.option2ToolStripMenuItem1.Text = "Option 2";
-            // 
-            // option3ToolStripMenuItem1
-            // 
-            this.option3ToolStripMenuItem1.Name = "option3ToolStripMenuItem1";
-            this.option3ToolStripMenuItem1.Size = new System.Drawing.Size(142, 26);
-            this.option3ToolStripMenuItem1.Text = "Option 3";
+            this.option3ToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.option3ToolStripMenuItem.Text = "Exit";
             // 
             // toolStripButton1
             // 
@@ -187,11 +152,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.descriptionTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.descriptionTextBox.Location = new System.Drawing.Point(349, 27);
+            this.descriptionTextBox.Location = new System.Drawing.Point(391, 27);
             this.descriptionTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.descriptionTextBox.Name = "descriptionTextBox";
             this.descriptionTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
-            this.descriptionTextBox.Size = new System.Drawing.Size(336, 344);
+            this.descriptionTextBox.Size = new System.Drawing.Size(267, 344);
             this.descriptionTextBox.TabIndex = 6;
             this.descriptionTextBox.Text = "";
             // 
@@ -230,7 +195,7 @@
             this.programsPanel.Location = new System.Drawing.Point(187, 27);
             this.programsPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.programsPanel.Name = "programsPanel";
-            this.programsPanel.Size = new System.Drawing.Size(160, 344);
+            this.programsPanel.Size = new System.Drawing.Size(198, 344);
             this.programsPanel.TabIndex = 8;
             // 
             // selectedPanel
@@ -241,10 +206,10 @@
             this.selectedPanel.BackColor = System.Drawing.SystemColors.Window;
             this.selectedPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.selectedPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.selectedPanel.Location = new System.Drawing.Point(691, 27);
+            this.selectedPanel.Location = new System.Drawing.Point(664, 27);
             this.selectedPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.selectedPanel.Name = "selectedPanel";
-            this.selectedPanel.Size = new System.Drawing.Size(159, 344);
+            this.selectedPanel.Size = new System.Drawing.Size(186, 344);
             this.selectedPanel.TabIndex = 10;
             this.selectedPanel.WrapContents = false;
             // 
@@ -279,10 +244,6 @@
         private System.Windows.Forms.ToolStripMenuItem option1ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem option2ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem option3ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton2;
-        private System.Windows.Forms.ToolStripMenuItem option1ToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem option2ToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem option3ToolStripMenuItem1;
         private System.Windows.Forms.ProgressBar downloadProgressBar;
         private System.Windows.Forms.Button downloadButton;
         private System.Windows.Forms.Label label1;

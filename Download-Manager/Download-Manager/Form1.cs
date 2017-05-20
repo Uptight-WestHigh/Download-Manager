@@ -314,5 +314,23 @@ namespace Download_Manager
             e.Cancel = (result == DialogResult.No);
         }
         #endregion
+
+        private void option1ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Do you want to dowload new configuration files? This may give you an updated list of programs.", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (dialogResult == DialogResult.Yes)
+            {
+                WebClient webClient = new WebClient();
+
+                if (File.Exists("Categories.Config"))
+                    File.Delete("Categories.Config");
+                if (File.Exists("Programs.Config"))
+                    File.Delete("Programs.Config");
+
+                webClient.DownloadFile("http://snaxdax.tk/downloadFiles/Categories.Config", "Categories.Config");
+                webClient.DownloadFile("http://snaxdax.tk/downloadFiles/Programs.Config", "Programs.Config");
+                MessageBox.Show("New configuration files downloaded.", "Download complete", MessageBoxButtons.OK, MessageBoxIcon.None);
+            }
+        }
     }
 }

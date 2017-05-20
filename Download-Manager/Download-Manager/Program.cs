@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.IO;
+using System.Net;
 
 namespace Download_Manager
 {
@@ -12,17 +13,34 @@ namespace Download_Manager
         [STAThread]
         static void Main()
         {
+            WebClient webClient = new WebClient();
+
+            // Check for missing files.
             if (!File.Exists("Categories.config"))
             {
-                MessageBox.Show("The Categories.config file is missing. The Program will not work without this file. Please download the program again.", "Error: Missing file", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Application.Exit();
-                return;
+                DialogResult dialogResult = MessageBox.Show("The Categories.config file is missing. The Program will not work without this file. Press OK to download the missing file.", "Error: Missing file", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                if (dialogResult == DialogResult.OK)
+                {
+                    webClient.DownloadFile("http://snaxdax.tk/downloadFiles/Categories.Config", "Categories.Config");
+                }
+                else if (dialogResult == DialogResult.Cancel)
+                {
+                    Application.Exit();
+                    return;
+                }
             }
             if (!File.Exists("Programs.config"))
             {
-                MessageBox.Show("The Categories.config file is missing. The Program will not work without this file. Please download the program again.", "Error: Missing file", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Application.Exit();
-                return;
+                DialogResult dialogResult = MessageBox.Show("The Programs.config file is missing. The Program will not work without this file. Please download the program again.", "Error: Missing file", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                if (dialogResult == DialogResult.OK)
+                {
+                    webClient.DownloadFile("http://snaxdax.tk/downloadFiles/Programs.Config", "Programs.Config");
+                }
+                else if (dialogResult == DialogResult.Cancel)
+                {
+                    Application.Exit();
+                    return;
+                }
             }
 
             Application.EnableVisualStyles();
