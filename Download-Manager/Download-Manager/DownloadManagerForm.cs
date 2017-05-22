@@ -9,7 +9,7 @@ using System.Diagnostics;
 
 namespace Download_Manager
 {
-    public partial class Form1 : Form
+    public partial class DownloadManagerForm : Form
     {
         public static Listing listing = new Listing();
         public List<Programs> selectedPrograms = new List<Programs>();
@@ -24,7 +24,7 @@ namespace Download_Manager
         string saveTo = Directory.GetCurrentDirectory();
         Stopwatch sw = new Stopwatch();
 
-        public Form1()
+        public DownloadManagerForm()
         {
             InitializeComponent();
             listing.InitializeCategories();
@@ -213,9 +213,11 @@ namespace Download_Manager
         {
             if (!Directory.Exists(Directory.GetCurrentDirectory() + "/Setups/"))
                 Directory.CreateDirectory(Directory.GetCurrentDirectory() + "/Setups/");
-            label2.Text = "Initializing download.";
+            statusLabel.Text = "Initializing download.";
             // Disable the button to prevent errors
             downloadButton.Enabled = false;
+            programsPanel.Enabled = false;
+            descriptionTextBox.Enabled = false;
             // Start the Downloading method
             DownloadItems();
         }
@@ -252,8 +254,10 @@ namespace Download_Manager
             else
             {
                 Debug.WriteLine("All files downloaded. Open explorer.");
-                label2.Text = "All files downloaded.";
+                statusLabel.Text = "All files downloaded.";
                 Process.Start(saveTo + "/Setups/");
+
+                Close();
             }
         }
 
@@ -271,12 +275,12 @@ namespace Download_Manager
 
             // Displays the current status.
             // Downloading (ProgramName), (BytesRecieved) / (BytesToRecieve), (Speed), (Done) / (Total)
-            label2.Text = "Downloading " + selectedPrograms[dc-1].name + ", "                            // Display name
+            statusLabel.Text = "Downloading " + selectedPrograms[dc-1].name + ", "                            // Display name
                 + bytesRecieved.ToString("0.00") + "MB / " + bytesToRecieve.ToString("0.00") + "MB, "   // Display bytes downloaded / total
                 + string.Format("{0} kb/s", (byteSpeed).ToString("0.00")) + ", "                        // Display download speed
                 + dc + " / " + selectedPrograms.Count + " downloaded.";                                  // Display amount of programs downloaded / total
             downloadProgressBar.Value = int.Parse(Math.Truncate(percentage).ToString());                // Set the value of the progressbar
-            label1.Text = Convert.ToString(int.Parse(Math.Truncate(percentage).ToString())) + "%";      // Display percentage done
+            percentLabel.Text = Convert.ToString(int.Parse(Math.Truncate(percentage).ToString())) + "%";      // Display percentage done
             Debug.Write(Convert.ToString(int.Parse(Math.Truncate(percentage).ToString())) + "% ");
         }
 
@@ -290,7 +294,9 @@ namespace Download_Manager
             // Reset the stopwatch
             sw.Reset();
             // Display what program was just completed
-            label2.Text = selectedPrograms[dc - 1].name + " downloaded.";
+            statusLabel.Text = selectedPrograms[dc - 1].name + " downloaded.";
+
+            selectedPanel.Controls.RemoveAt(0);
 
             webClient.CancelAsync();
             webClient.Dispose();
@@ -302,22 +308,31 @@ namespace Download_Manager
         /// If you press the X in the top right of the window
         /// Stops the program from closing, asks for confirmation
         /// </summary>
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        private void DownloadManagerForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             // Display a message
             // Ask for confirmation
-            var result = MessageBox.Show("Are you sure that you want to close the program? \nAll unfinished downloads will be lost.", "Confirmation",
-                             MessageBoxButtons.YesNo,
-                             MessageBoxIcon.Question);
+            if (dc < selectedPrograms.Count)
+            {
+                var result = MessageBox.Show("Are you sure that you want to close the program? \nAll unfinished downloads will be lost.", "Confirmation",
+                                 MessageBoxButtons.YesNo,
+                                 MessageBoxIcon.Warning,
+                                 MessageBoxDefaultButton.Button2);
 
-            // If the answer is "no", stop the program from exiting.
-            e.Cancel = (result == DialogResult.No);
+                // If the answer is "no", stop the program from exiting.
+                e.Cancel = (result == DialogResult.No);
+            }
         }
         #endregion
 
-        private void option1ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void updateMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Do you want to dowload new configuration files? This may give you an updated list of programs.", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            DialogResult dialogResult = MessageBox.Show(
+                "Do you want to download new configuration files? This may give you an updated list of programs.", 
+                "Information", 
+                MessageBoxButtons.YesNo, 
+                MessageBoxIcon.Information);
+
             if (dialogResult == DialogResult.Yes)
             {
                 WebClient webClient = new WebClient();
@@ -331,6 +346,28 @@ namespace Download_Manager
                 webClient.DownloadFile("http://snaxdax.tk/downloadFiles/Programs.Config", "Programs.Config");
                 MessageBox.Show("New configuration files downloaded.", "Download complete", MessageBoxButtons.OK, MessageBoxIcon.None);
             }
+        }
+        private void exitMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void helpButton_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(
+            "",
+            "Help",
+            MessageBoxButtons.OK,
+            MessageBoxIcon.Question);
+        }
+
+        private void aboutButton_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(
+                "All software installers were downloaded from their respective official websites. The setups are stored and downloaded by this client from http://snaxdax.tk. \n\nAll featured software is free to download and the installers are exactly the same as those from the official sources. All rights go to the respective publishers and owners.\n\nIf you do not approve of your software being included here, please contact us.\n\nThe program is made with .NET and Windows Forms. It uses the built-in WebClient class to download the selected files.\n© 2003 Microsoft Corporation\n\nDesigned and written by Filip Bergkvist, 2017", 
+                "About Download-Manager", 
+                MessageBoxButtons.OK, 
+                MessageBoxIcon.Information);
         }
     }
 }

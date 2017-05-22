@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Windows.Forms;
-using System.Diagnostics;
 
 namespace Download_Manager
 {
@@ -85,7 +82,7 @@ namespace Download_Manager
                         // Create an object with the name read from the file.
                         // Trim the end to remove any extra characters, like a new row.
                         // Name, ID, Category, Description, URL
-                        Programs program = new Programs(keyAndValue[0].Trim(), i, keyAndValue[1].Trim(), keyAndValue[2].Trim(), keyAndValue[3].Trim());
+                        Programs program = new Programs(keyAndValue[0].TrimEnd(), i, keyAndValue[1].TrimEnd(), keyAndValue[2].TrimEnd(), keyAndValue[3].TrimEnd());
                         // Add it to the list
                         programs.Add(program);
                         // Increment the ID variable

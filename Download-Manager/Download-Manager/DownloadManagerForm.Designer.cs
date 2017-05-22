@@ -1,6 +1,6 @@
 ﻿namespace Download_Manager
 {
-    public partial class Form1
+    public partial class DownloadManagerForm
     {
         /// <summary>
         /// Required designer variable.
@@ -26,20 +26,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DownloadManagerForm));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.option1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.option2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.option3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.fileDropDownButton = new System.Windows.Forms.ToolStripDropDownButton();
+            this.updateMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpButton = new System.Windows.Forms.ToolStripButton();
+            this.aboutButton = new System.Windows.Forms.ToolStripButton();
             this.downloadProgressBar = new System.Windows.Forms.ProgressBar();
             this.downloadButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.percentLabel = new System.Windows.Forms.Label();
             this.descriptionTextBox = new System.Windows.Forms.RichTextBox();
             this.categoriesPanel = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.statusLabel = new System.Windows.Forms.Label();
             this.programsPanel = new System.Windows.Forms.Panel();
             this.selectedPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.toolStrip1.SuspendLayout();
@@ -50,64 +49,60 @@
             this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripDropDownButton1,
-            this.toolStripButton1,
-            this.toolStripButton2});
+            this.fileDropDownButton,
+            this.helpButton,
+            this.aboutButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(157, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(196, 27);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripDropDownButton1
+            // fileDropDownButton
             // 
-            this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.option1ToolStripMenuItem,
-            this.option2ToolStripMenuItem,
-            this.option3ToolStripMenuItem});
-            this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
-            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(46, 24);
-            this.toolStripDropDownButton1.Text = "File";
+            this.fileDropDownButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.fileDropDownButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.updateMenuItem,
+            this.exitMenuItem});
+            this.fileDropDownButton.Image = ((System.Drawing.Image)(resources.GetObject("fileDropDownButton.Image")));
+            this.fileDropDownButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.fileDropDownButton.Name = "fileDropDownButton";
+            this.fileDropDownButton.Size = new System.Drawing.Size(46, 24);
+            this.fileDropDownButton.Text = "File";
             // 
-            // option1ToolStripMenuItem
+            // updateMenuItem
             // 
-            this.option1ToolStripMenuItem.Name = "option1ToolStripMenuItem";
-            this.option1ToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
-            this.option1ToolStripMenuItem.Text = "Update";
-            this.option1ToolStripMenuItem.Click += new System.EventHandler(this.option1ToolStripMenuItem_Click);
+            this.updateMenuItem.Name = "updateMenuItem";
+            this.updateMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.updateMenuItem.Text = "Update";
+            this.updateMenuItem.Click += new System.EventHandler(this.updateMenuItem_Click);
             // 
-            // option2ToolStripMenuItem
+            // exitMenuItem
             // 
-            this.option2ToolStripMenuItem.Name = "option2ToolStripMenuItem";
-            this.option2ToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
-            this.option2ToolStripMenuItem.Text = "Reload";
+            this.exitMenuItem.Name = "exitMenuItem";
+            this.exitMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.exitMenuItem.Text = "Exit";
+            this.exitMenuItem.Click += new System.EventHandler(this.exitMenuItem_Click);
             // 
-            // option3ToolStripMenuItem
+            // helpButton
             // 
-            this.option3ToolStripMenuItem.Name = "option3ToolStripMenuItem";
-            this.option3ToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
-            this.option3ToolStripMenuItem.Text = "Exit";
+            this.helpButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.helpButton.Image = ((System.Drawing.Image)(resources.GetObject("helpButton.Image")));
+            this.helpButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.helpButton.Name = "helpButton";
+            this.helpButton.Size = new System.Drawing.Size(45, 24);
+            this.helpButton.Text = "Help";
+            this.helpButton.Click += new System.EventHandler(this.helpButton_Click);
             // 
-            // toolStripButton1
+            // aboutButton
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(45, 24);
-            this.toolStripButton1.Text = "Help";
-            // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(54, 24);
-            this.toolStripButton2.Text = "About";
+            this.aboutButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.aboutButton.Image = ((System.Drawing.Image)(resources.GetObject("aboutButton.Image")));
+            this.aboutButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.aboutButton.Name = "aboutButton";
+            this.aboutButton.Size = new System.Drawing.Size(54, 24);
+            this.aboutButton.Text = "About";
+            this.aboutButton.Click += new System.EventHandler(this.aboutButton_Click);
             // 
             // downloadProgressBar
             // 
@@ -134,17 +129,17 @@
             this.downloadButton.UseVisualStyleBackColor = true;
             this.downloadButton.Click += new System.EventHandler(this.downloadButton_Click);
             // 
-            // label1
+            // percentLabel
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 401);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(28, 17);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "0%";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.percentLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.percentLabel.AutoSize = true;
+            this.percentLabel.Location = new System.Drawing.Point(7, 401);
+            this.percentLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.percentLabel.Name = "percentLabel";
+            this.percentLabel.Size = new System.Drawing.Size(28, 17);
+            this.percentLabel.TabIndex = 4;
+            this.percentLabel.Text = "0%";
+            this.percentLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // descriptionTextBox
             // 
@@ -167,23 +162,23 @@
             this.categoriesPanel.AutoScroll = true;
             this.categoriesPanel.BackColor = System.Drawing.SystemColors.Window;
             this.categoriesPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.categoriesPanel.Location = new System.Drawing.Point(9, 27);
+            this.categoriesPanel.Location = new System.Drawing.Point(8, 27);
             this.categoriesPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.categoriesPanel.Name = "categoriesPanel";
             this.categoriesPanel.Size = new System.Drawing.Size(173, 344);
             this.categoriesPanel.TabIndex = 7;
             // 
-            // label2
+            // statusLabel
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 377);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(363, 17);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Select what programs to download and press the button.";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.statusLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.statusLabel.AutoSize = true;
+            this.statusLabel.Location = new System.Drawing.Point(7, 377);
+            this.statusLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.statusLabel.Name = "statusLabel";
+            this.statusLabel.Size = new System.Drawing.Size(363, 17);
+            this.statusLabel.TabIndex = 8;
+            this.statusLabel.Text = "Select what programs to download and press the button.";
+            this.statusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // programsPanel
             // 
@@ -213,25 +208,25 @@
             this.selectedPanel.TabIndex = 10;
             this.selectedPanel.WrapContents = false;
             // 
-            // Form1
+            // DownloadManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(861, 431);
             this.Controls.Add(this.selectedPanel);
             this.Controls.Add(this.programsPanel);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.statusLabel);
             this.Controls.Add(this.categoriesPanel);
             this.Controls.Add(this.descriptionTextBox);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.percentLabel);
             this.Controls.Add(this.downloadButton);
             this.Controls.Add(this.downloadProgressBar);
             this.Controls.Add(this.toolStrip1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(699, 202);
-            this.Name = "Form1";
+            this.Name = "DownloadManagerForm";
             this.Text = "Download Manager";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DownloadManagerForm_FormClosing);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -240,18 +235,17 @@
         }
 
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
-        private System.Windows.Forms.ToolStripMenuItem option1ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem option2ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem option3ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripDropDownButton fileDropDownButton;
+        private System.Windows.Forms.ToolStripMenuItem updateMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitMenuItem;
         private System.Windows.Forms.ProgressBar downloadProgressBar;
         private System.Windows.Forms.Button downloadButton;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label percentLabel;
         private System.Windows.Forms.RichTextBox descriptionTextBox;
         private System.Windows.Forms.Panel categoriesPanel;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.Label statusLabel;
+        private System.Windows.Forms.ToolStripButton helpButton;
+        private System.Windows.Forms.ToolStripButton aboutButton;
         private System.Windows.Forms.Panel programsPanel;
         private System.Windows.Forms.FlowLayoutPanel selectedPanel;
     }
