@@ -211,8 +211,16 @@ namespace Download_Manager
         /// </summary>
         private void downloadButton_Click(object sender, EventArgs e)
         {
-            if (!Directory.Exists(Directory.GetCurrentDirectory() + "/Setups/"))
-                Directory.CreateDirectory(Directory.GetCurrentDirectory() + "/Setups/");
+            FolderBrowserDialog folderBrowserDialog1 = new FolderBrowserDialog();
+            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            {
+                saveTo = folderBrowserDialog1.SelectedPath;
+            }
+            else
+                return;
+
+            if (!Directory.Exists(saveTo + "/Setups/"))
+                Directory.CreateDirectory(saveTo + "/Setups/");
             statusLabel.Text = "Initializing download.";
             // Disable the button to prevent errors
             downloadButton.Enabled = false;
@@ -242,7 +250,7 @@ namespace Download_Manager
                     sw.Start();
                     webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);
                     webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
-                    webClient.DownloadFileAsync(new Uri(downloadSite + selectedPrograms[dc].category + "/" + selectedPrograms[dc].url), "Setups/" + selectedPrograms[dc].url);
+                    webClient.DownloadFileAsync(new Uri(downloadSite + selectedPrograms[dc].category + "/" + selectedPrograms[dc].url), saveTo + "/Setups/" + selectedPrograms[dc].url);
                     dc++;
                 }
                 else
@@ -325,6 +333,8 @@ namespace Download_Manager
         }
         #endregion
 
+        #region Toolstrip Buttons
+
         private void updateMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show(
@@ -369,5 +379,7 @@ namespace Download_Manager
                 MessageBoxButtons.OK, 
                 MessageBoxIcon.Information);
         }
+
+        #endregion
     }
 }
