@@ -239,9 +239,6 @@ namespace Download_Manager
             // This was the solution to downloading several installers
             webClient = new WebClient();
 
-            // Dispose and reset the webclient and stopwatch
-            webClient.Dispose();
-            sw.Reset();
             if (dc < selectedPrograms.Count)
             {
                 if (!webClient.IsBusy)
@@ -306,9 +303,6 @@ namespace Download_Manager
 
             selectedPanel.Controls.RemoveAt(0);
 
-            webClient.CancelAsync();
-            webClient.Dispose();
-
             DownloadItems();
         }
 
@@ -365,7 +359,7 @@ namespace Download_Manager
         private void helpButton_Click(object sender, EventArgs e)
         {
             MessageBox.Show(
-            "",
+            "Choose any of the categories in the panel to the left. This will display the corresponding programs in the programs panel.\n\n When choosing a program from the programs panel, notice how information about the program is displayed and that the program is added to the selected programs list to the right. Click on a program again to remove it from the list.\n\nTo start the download, press the download button at the bottom right. This will first display a dialogue, asking for a download location. After it will sequentially download all of the selected programs. Information about the download will be displayed at the bottom.",
             "Help",
             MessageBoxButtons.OK,
             MessageBoxIcon.Question);
