@@ -300,9 +300,9 @@ namespace Download_Manager
             sw.Reset();
             // Display what program was just completed
             statusLabel.Text = selectedPrograms[dc - 1].name + " downloaded.";
-
+            // Remove the downlaoded item label from the selected panel
             selectedPanel.Controls.RemoveAt(0);
-
+            // Start the download again
             DownloadItems();
         }
 
@@ -348,7 +348,8 @@ namespace Download_Manager
 
                 webClient.DownloadFile("http://snaxdax.tk/downloadFiles/Categories.Config", "Categories.Config");
                 webClient.DownloadFile("http://snaxdax.tk/downloadFiles/Programs.Config", "Programs.Config");
-                MessageBox.Show("New configuration files downloaded.", "Download complete", MessageBoxButtons.OK, MessageBoxIcon.None);
+                MessageBox.Show("New configuration files downloaded. The program will now restart.", "Download complete", MessageBoxButtons.OK, MessageBoxIcon.None);
+                Application.Restart();
             }
         }
         private void exitMenuItem_Click(object sender, EventArgs e)

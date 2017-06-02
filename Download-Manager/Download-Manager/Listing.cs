@@ -68,8 +68,6 @@ namespace Download_Manager
             {
                 // Split the string into an array of each row
                 string[] lines = programsContents.Split(new char[] { '\n' });
-                // Dictionary to store the different "sections"
-                Dictionary<string, string> mysettings = new Dictionary<string, string>();
                 // For each row (as string line)
                 foreach (string line in lines)
                 {
