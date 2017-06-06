@@ -339,15 +339,7 @@ namespace Download_Manager
 
             if (dialogResult == DialogResult.Yes)
             {
-                WebClient webClient = new WebClient();
-
-                if (File.Exists("Categories.Config"))
-                    File.Delete("Categories.Config");
-                if (File.Exists("Programs.Config"))
-                    File.Delete("Programs.Config");
-
-                webClient.DownloadFile("http://snaxdax.tk/downloadFiles/Categories.Config", "Categories.Config");
-                webClient.DownloadFile("http://snaxdax.tk/downloadFiles/Programs.Config", "Programs.Config");
+                UpdateConfig();
                 MessageBox.Show("New configuration files downloaded. The program will now restart.", "Download complete", MessageBoxButtons.OK, MessageBoxIcon.None);
                 Application.Restart();
             }
@@ -373,6 +365,19 @@ namespace Download_Manager
                 "About Download-Manager", 
                 MessageBoxButtons.OK, 
                 MessageBoxIcon.Information);
+        }
+
+        public static void UpdateConfig()
+        {
+            WebClient webClient = new WebClient();
+
+            if (File.Exists("Categories.Config"))
+                File.Delete("Categories.Config");
+            if (File.Exists("Programs.Config"))
+                File.Delete("Programs.Config");
+
+            webClient.DownloadFile("http://snaxdax.tk/downloadFiles/Categories.Config", "Categories.Config");
+            webClient.DownloadFile("http://snaxdax.tk/downloadFiles/Programs.Config", "Programs.Config");
         }
 
         #endregion
