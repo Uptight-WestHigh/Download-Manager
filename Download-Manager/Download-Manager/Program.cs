@@ -59,17 +59,8 @@ namespace Download_Manager
                 }
             }
 
-            // Check if Programs.config is missing
-            if (!File.Exists("Programs.config"))
-            {
-            }
-
             // If both files now exist, return false (no files missing)
-            if (File.Exists("Categories.config") && File.Exists("Programs.config"))
-                return false;
-            // If any of them is missing, return true (files missing)
-            else
-                return true;
+            return (File.Exists("Categories.config") && File.Exists("Programs.config")) ? false : true;
         }
     }
 }

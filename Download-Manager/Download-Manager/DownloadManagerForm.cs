@@ -19,7 +19,7 @@ namespace Download_Manager
 
         WebClient webClient;
 
-        string downloadSite = "http://snaxdax.tk/downloadFiles/";
+        string downloadSite = "https://filipdev.000webhostapp.com/downloadmanager/";
         int dc = 0;
         string saveTo = Directory.GetCurrentDirectory();
         Stopwatch sw = new Stopwatch();
