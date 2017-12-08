@@ -4,6 +4,7 @@ This program was developed for a school assignment by Filip Bergkvist.
 
 ### Features
 Download-Manager will fetch a list of free software and allow the user to download installers for software in bulk. No paid software are included, but not all programs are open source.
+![alt text](https://i.imgur.com/3NRtnsT.jpg)
 
 ### Downloading Instructions
 Clone or download the repository as a zip. The complete program is in the Release.zip folder.
